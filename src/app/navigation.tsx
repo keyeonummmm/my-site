@@ -8,15 +8,15 @@ export default function Navigation() {
 
   return (
     <nav className="flex flex-col gap-4">
-      <div className="flex gap-6">
+      <div className="flex gap-8">
         <Link href="/">
-          <h1 className="text-gray-800 hover:text-gray-600 transition-colors font-normal">
+          <h1 className="hover:italic transition-[font-style] duration-300 font-normal">
             chaoran zhou
           </h1>
         </Link>
         <Link 
           href="/works" 
-          className="text-gray-800 hover:text-gray-600 transition-colors"
+          className="hover:italic transition-[font-style] duration-300"
         >
           works
         </Link>
@@ -24,17 +24,17 @@ export default function Navigation() {
           <button
             type="button"
             onClick={() => setShowAboutLinks(!showAboutLinks)}
-            className="text-gray-800 hover:text-gray-600 transition-colors cursor-pointer"
+            className="hover:italic transition-[font-style] duration-300 cursor-pointer"
           >
             about
           </button>
           {showAboutLinks && (
-            <span className="animate-reveal-text">
-              : <Link href="/about/bio" className="hover:text-gray-600">bio</Link>
+            <span className="whitespace-nowrap">
+              : :<Link href="/about/bio" className="hover:italic transition-[font-style] duration-300">bio</Link>
               {" / "}
-              <Link href="/about/index" className="hover:text-gray-600">index</Link>
+              <Link href="/about/index" className="hover:italic transition-[font-style] duration-300">index</Link>
               {" / "}
-              <Link href="/about/contact" className="hover:text-gray-600">contact</Link>
+              <Link href="/about/contact" className="hover:italic transition-[font-style] duration-300">contact</Link>
             </span>
           )}
         </div>

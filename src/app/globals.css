@@ -2,34 +2,38 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
+:root[data-theme="light"] {
   --background: #ffffff;
-  --foreground: #444444;
+  --foreground: #000000;
+}
+
+:root[data-theme="dark"] {
+  --background: #000000;
+  --foreground: #ffffff;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    --background: #ffffff;
+    --foreground: #000000;
+  }
 }
 
 @media (prefers-color-scheme: dark) {
   :root {
-    --background: #ffffff;
-    --foreground: #444444;
+    --background: #000000;
+    --foreground: #ffffff;
   }
 }
 
+/* Global styles for all text elements */
 body {
   color: var(--foreground);
   background: var(--background);
-  font-family: Helvetica, sans-serif;
+  transition: color 0.3s ease, background-color 0.3s ease;
 }
 
-@keyframes revealText {
-  from {
-    clip-path: inset(0 100% 0 0);
-  }
-  to {
-    clip-path: inset(0 0 0 0);
-  }
-}
-
-.animate-reveal-text {
-  animation: revealText 0.25s ease-out forwards;
-  display: inline-block;
+/* Apply hover effect to all interactive elements */
+a:hover, button:hover, [role="button"]:hover {
+  font-style: italic;
 }
