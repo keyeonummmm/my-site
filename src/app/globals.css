@@ -27,13 +27,31 @@
 }
 
 /* Global styles for all text elements */
+html {
+  font-size: 13pt;
+}
+
 body {
   color: var(--foreground);
   background: var(--background);
   transition: color 0.3s ease, background-color 0.3s ease;
+  font-size: 1rem;
 }
 
-/* Apply hover effect to all interactive elements */
+a, button, [role="button"] {
+  padding-right: 0.1em;
+  transform: translateZ(0); 
+  backface-visibility: hidden; 
+}
 a:hover, button:hover, [role="button"]:hover {
   font-style: italic;
+}
+
+@keyframes scale {
+  0%, 100% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(1.05);
+  }
 }

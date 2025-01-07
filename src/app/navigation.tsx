@@ -2,39 +2,41 @@
 
 import Link from "next/link"
 import { useState } from "react"
+import { usePathname } from "next/navigation"
 
 export default function Navigation() {
   const [showAboutLinks, setShowAboutLinks] = useState(false)
+  const pathname = usePathname()
 
   return (
     <nav className="flex flex-col gap-4">
-      <div className="flex gap-8">
+      <div className="fixed top-5 left-20 flex gap-8">
         <Link href="/">
-          <h1 className="hover:italic transition-[font-style] duration-300 font-normal">
-            chaoran zhou
+          <h1 className={`transition-[font-style] duration-100 font-normal ${pathname === '/' ? 'italic' : ''}`}>
+            Chaoran-Zhou
           </h1>
         </Link>
         <Link 
           href="/works" 
-          className="hover:italic transition-[font-style] duration-300"
+          className={`transition-[font-style] duration-100 ${pathname === '/works' ? 'italic' : ''}`}
         >
-          works
+          Works
         </Link>
         <div className="flex items-center">
           <button
             type="button"
             onClick={() => setShowAboutLinks(!showAboutLinks)}
-            className="hover:italic transition-[font-style] duration-300 cursor-pointer"
+            className={`transition-[font-style] duration-100 cursor-pointer ${pathname.startsWith('/about') ? 'italic' : ''}`}
           >
-            about
+            About
           </button>
           {showAboutLinks && (
             <span className="whitespace-nowrap">
-              : :<Link href="/about/bio" className="hover:italic transition-[font-style] duration-300">bio</Link>
+              : <Link href="/about/bio" className={`transition-[font-style] duration-100 ${pathname === '/about/bio' ? 'italic' : ''}`}>Bio</Link>
               {" / "}
-              <Link href="/about/index" className="hover:italic transition-[font-style] duration-300">index</Link>
+              <Link href="/about/index" className={`transition-[font-style] duration-100 ${pathname === '/about/index' ? 'italic' : ''}`}>Index</Link>
               {" / "}
-              <Link href="/about/contact" className="hover:italic transition-[font-style] duration-300">contact</Link>
+              <Link href="/about/contact" className={`transition-[font-style] duration-100 ${pathname === '/about/contact' ? 'italic' : ''}`}>Contact</Link>
             </span>
           )}
         </div>

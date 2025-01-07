@@ -1,3 +1,3 @@
 export default function Bio() {
-  return <div>Bio</div>;
+  return <div></div>;
 }
