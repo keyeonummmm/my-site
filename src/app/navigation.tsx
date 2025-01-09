@@ -10,10 +10,10 @@ export default function Navigation() {
 
   return (
     <nav className="flex flex-col gap-4">
-      <div className="fixed top-5 left-20 flex gap-8">
+      <div className="fixed top-5 left-20 flex gap-8 z-50 bg-inherit">
         <Link href="/">
           <h1 className={`transition-[font-style] duration-100 font-normal ${pathname === '/' ? 'italic' : ''}`}>
-            Chaoran-Zhou
+            Zhou-Chao-Ran
           </h1>
         </Link>
         <Link 

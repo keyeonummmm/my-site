@@ -26,13 +26,13 @@ export default function Theme({ theme, toggleTheme }: ThemeProps) {
     }, []);
 
     return (
-      <div className="fixed top-5 right-20 flex items-center gap-4">
+      <div className="fixed bottom-5 right-16 flex items-center gap-4">
         <button
           onClick={() => {
             console.log('Theme button clicked')
             toggleTheme()
           }}
-          className="w-3 h-3 rounded-full bg-foreground animate-[scale_2s_ease-in-out_infinite] hover:scale-110 transition-transform"
+          className="w-2 h-2 rounded-full bg-foreground animate-[scale_2s_ease-in-out_infinite] hover:scale-110 transition-transform"
           aria-label={`Switch to ${theme === 'dark' ? 'light' : 'dark'} mode`}
           style={{
             animation: 'scale 2s ease-in-out infinite'

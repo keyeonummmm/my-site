@@ -10,21 +10,24 @@ type Project = {
   name: string
   year: string
   imagePath: string
+  path: string
 }
 
 // Sample projects - you'll want to replace these with your actual projects
 const projects: Project[] = [
   {
-    id: '001',
-    name: 'Introduction',
-    year: '2024',
-    imagePath: '/assets/2024/project-one.jpg'
+    id: '0.0.1',
+    name: 'Information',
+    year: '&.& - &.&',
+    imagePath: '/assets/2024/project-one.jpg',
+    path: '/information'
   },
   {
-    id: '002',
+    id: '0.0.2',
     name: 'Thesis Project',
-    year: '2025',
-    imagePath: '/assets/2025/thesis.jpg'
+    year: '2024 - 2025',
+    imagePath: '/assets/2025/thesis.jpg',
+    path: '/thesis'
   }
 ]
 
@@ -34,8 +37,8 @@ export default function Home() {
   return (
     <div className="page-container">
       <div className="project-list">
-        <Link href="/introduction">
         {projects.map((project) => (
+          <Link href={project.path} key={project.id}>
           <div 
             key={project.id} 
             className="project-row"
@@ -52,8 +55,8 @@ export default function Home() {
               {project.year}
             </span>
           </div>
-        ))}
         </Link>
+        ))}
       </div>
       
 
