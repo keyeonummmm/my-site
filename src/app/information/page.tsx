@@ -1,3 +1,5 @@
 export default function Information() {
-  return <div>Information</div>
+  return <div>
+    <h1>Information</h1>
+  </div>
 }
