@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import Image from 'next/image'
+import Link from 'next/link'
 
 // Project data structure
 type Project = {
@@ -15,48 +16,62 @@ type Project = {
 const projects: Project[] = [
   {
     id: '001',
-    name: 'Project One',
+    name: 'Introduction',
     year: '2024',
-    imagePath: '/assets/images/2024/project-one.jpg'
+    imagePath: '/assets/2024/project-one.jpg'
   },
-  // ... add more projects
+  {
+    id: '002',
+    name: 'Thesis Project',
+    year: '2025',
+    imagePath: '/assets/2025/thesis.jpg'
+  }
 ]
 
 export default function Home() {
   const [hoveredImage, setHoveredImage] = useState<string | null>(null)
 
   return (
-    <div className="min-h-screen p-10 pt-15">
-      <div className="space-y-6">
+    <div className="page-container">
+      <div className="project-list">
+        <Link href="/introduction">
         {projects.map((project) => (
           <div 
             key={project.id} 
-            className="relative flex items-center group cursor-pointer"
+            className="project-row"
             onMouseEnter={() => setHoveredImage(project.imagePath)}
             onMouseLeave={() => setHoveredImage(null)}
           >
-            <span className="absolute left-14 group-hover:italic">
+            <span className="project-text project-id">
               {project.id}
             </span>
-            <span className="ml-auto mr-[30%] group-hover:italic">
+            <span className="project-text project-name">
               {project.name}
             </span>
-            <span className="absolute right-16 group-hover:italic">
+            <span className="project-text project-year">
               {project.year}
             </span>
           </div>
         ))}
+        </Link>
       </div>
+      
 
-      {/* Image Preview */}
       {hoveredImage && (
-        <div className="fixed inset-0 flex items-center justify-center z-10 pointer-events-none">
+        <div className="image-preview-container">
           <Image
             src={hoveredImage}
             alt="Project Preview"
-            width={800}
-            height={600}
-            className="max-w-[80vw] max-h-[80vh] object-contain"
+            width={0}
+            height={0}
+            sizes="80vw"
+            className="preview-image"
+            style={{ width: 'auto', height: 'auto' }}
+            priority
+            onError={(e) => {
+              console.error('Error loading image:', hoveredImage);
+              setHoveredImage(null);
+            }}
           />
         </div>
       )}

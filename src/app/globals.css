@@ -55,3 +55,64 @@ a:hover, button:hover, [role="button"]:hover {
     transform: scale(1.05);
   }
 }
+
+/* Container layouts */
+.page-container {
+  min-height: 50vh;
+  padding: 2rem;
+  position: relative;
+}
+
+/* Project list styles */
+.project-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  padding-top: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.project-row {
+  position: relative;
+  display: flex;
+  align-items: center;
+  cursor: pointer;
+  padding-top: 0.1rem;
+}
+
+.project-row:hover .project-text {
+  font-style: italic;
+}
+
+.project-id {
+  position: absolute;
+  left: 1.8rem;
+}
+
+.project-name {
+  margin-left: 60%;
+}
+
+.project-year {
+  position: absolute;
+  right: 1.9rem;
+}
+
+/* Image preview styles */
+.image-preview-container {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 2rem;
+  display: flex;
+  justify-content: center;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.preview-image {
+  max-width: 80vw;
+  max-height: 80vh;
+  object-fit: contain;
+}
