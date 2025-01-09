@@ -13,7 +13,7 @@ export default function Navigation() {
       <div className="fixed top-5 left-20 flex gap-8 z-50 bg-inherit">
         <Link href="/">
           <h1 className={`transition-[font-style] duration-100 font-normal ${pathname === '/' ? 'italic' : ''}`}>
-            Zhou-Chao-Ran
+            Source
           </h1>
         </Link>
         <Link 

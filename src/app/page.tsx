@@ -16,17 +16,17 @@ type Project = {
 // Sample projects - you'll want to replace these with your actual projects
 const projects: Project[] = [
   {
-    id: '0.0.1',
+    id: '0.0.0',
     name: 'Information',
     year: '&.& - &.&',
     imagePath: '/assets/2024/project-one.jpg',
     path: '/information'
   },
   {
-    id: '0.0.2',
-    name: 'Thesis Project',
+    id: '0.0.1',
+    name: 'Player\'s Handbook',
     year: '2024 - 2025',
-    imagePath: '/assets/2025/thesis.jpg',
+    imagePath: '/assets/2024/book cover front_v3.webp',
     path: '/thesis'
   }
 ]

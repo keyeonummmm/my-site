@@ -19,6 +19,7 @@ export default function RootLayout({
 
   return (
     <html lang="en" data-theme={theme}>
+      <title>Chaoran Zhou</title>
       <body className={`${timesNewRoman.variable}`}>
         <div className="min-h-screen p-5 pt-5 relative">
           <Navigation />
