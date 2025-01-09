@@ -115,3 +115,15 @@ a:hover, button:hover, [role="button"]:hover {
   max-height: 80vh;
   object-fit: contain;
 }
+
+/* For dark theme */
+[data-theme='dark'] .pdf-link {
+  color: white;
+  background: black;
+  border: 1px solid white;
+}
+
+[data-theme='dark'] .pdf-link:hover {
+  background: white;
+  color: black;
+}
