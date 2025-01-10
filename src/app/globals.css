@@ -127,3 +127,21 @@ a:hover, button:hover, [role="button"]:hover {
   background: white;
   color: black;
 }
+
+.info-columns {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2rem;
+  height: 70vh;
+}
+
+.info-column {
+  flex: 1;
+  height: 70vh;
+  overflow-y: auto;
+  padding: 1rem;
+}
+
+.info-column-left {
+  border-right: 1px solid currentColor;
+}
