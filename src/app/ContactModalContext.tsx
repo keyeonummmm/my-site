@@ -1,6 +1,6 @@
 'use client'
 
-import { createContext, useContext, useState } from 'react'
+import { createContext, useContext, useState, useCallback, useRef, useLayoutEffect } from 'react'
 
 interface ContactModalContextType {
   isOpen: boolean
@@ -12,12 +12,40 @@ const ContactModalContext = createContext<ContactModalContextType | undefined>(u
 
 export function ContactModalProvider({ children }: { children: React.ReactNode }) {
   const [isOpen, setIsOpen] = useState(false)
+  const mountRef = useRef(false)
+  const stateRef = useRef(false)
 
-  const openModal = () => setIsOpen(true)
-  const closeModal = () => setIsOpen(false)
+  // Use Layout Effect to ensure state consistency
+  useLayoutEffect(() => {
+    if (!mountRef.current) {
+      mountRef.current = true
+      return
+    }
+    stateRef.current = isOpen
+  }, [isOpen])
+
+  const openModal = useCallback(() => {
+    if (!stateRef.current) {
+      setIsOpen(true)
+      stateRef.current = true
+    }
+  }, [])
+
+  const closeModal = useCallback(() => {
+    if (stateRef.current) {
+      setIsOpen(false)
+      stateRef.current = false
+    }
+  }, [])
+
+  const value = {
+    isOpen,
+    openModal,
+    closeModal
+  }
 
   return (
-    <ContactModalContext.Provider value={{ isOpen, openModal, closeModal }}>
+    <ContactModalContext.Provider value={value}>
       {children}
     </ContactModalContext.Provider>
   )
