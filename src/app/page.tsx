@@ -5,12 +5,18 @@ import Image from 'next/image'
 import Link from 'next/link'
 
 // Project data structure
+type ImageSize = {
+  maxWidth: string
+  maxHeight: string
+}
+
 type Project = {
   id: string
   name: string
   year: string
   imagePath: string
   path: string
+  imageSize?: ImageSize // Optional property
 }
 
 // Sample projects - you'll want to replace these with your actual projects
@@ -19,8 +25,12 @@ const projects: Project[] = [
     id: '0.0.0',
     name: 'Information',
     year: '&.& - &.&',
-    imagePath: '/assets/2024/project-one.jpg',
-    path: '/information'
+    imagePath: '/assets/2024/info.webp',
+    path: '/information',
+    imageSize: {
+      maxWidth: '70vw',
+      maxHeight: '70vh'
+    }
   },
   {
     id: '0.0.1',
@@ -69,7 +79,12 @@ export default function Home() {
             height={0}
             sizes="80vw"
             className="preview-image"
-            style={{ width: 'auto', height: 'auto' }}
+            style={{ 
+              width: 'auto', 
+              height: 'auto',
+              maxWidth: projects.find(p => p.imagePath === hoveredImage)?.imageSize?.maxWidth || '80vw',
+              maxHeight: projects.find(p => p.imagePath === hoveredImage)?.imageSize?.maxHeight || '80vh'
+            }}
             priority
             onError={(e) => {
               console.error('Error loading image:', hoveredImage);

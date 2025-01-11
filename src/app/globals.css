@@ -111,8 +111,6 @@ a:hover, button:hover, [role="button"]:hover {
 }
 
 .preview-image {
-  max-width: 80vw;
-  max-height: 80vh;
   object-fit: contain;
 }
 

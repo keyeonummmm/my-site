@@ -42,3 +42,5 @@ next-env.d.ts
 
 .cursorrules
 sample.txt
+og_images
+og_images/*
