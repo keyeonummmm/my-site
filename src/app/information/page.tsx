@@ -1,6 +1,24 @@
 'use client'
 
+import { useEffect } from 'react'
+import { useTitle } from '../TitleContext'
+
+const calculateAge = () =>{
+  const birthday = new Date('2002-07-16');
+  const today = new Date();
+  const years = today.getFullYear() - birthday.getFullYear();
+  const months = today.getMonth() - birthday.getMonth();
+  const days = today.getDate() - birthday.getDate();
+  return +(years + months / 12 + days / 365).toFixed(2);
+}
+
 export default function Information() {
+  const { setTitle } = useTitle()
+  useEffect(() => {
+    setTitle('Information')
+    return () => setTitle('')
+  }, [setTitle])
+
   const handleScroll = (e: React.WheelEvent) => {
     e.stopPropagation();
   }
@@ -8,9 +26,9 @@ export default function Information() {
   return (
     <div>
       <div className="pt-16 px-20">
-        <h1>Chaoran Zhou</h1>
-        <h2>Age: 22</h2>
-        <h2>Toronto, ON, Canada</h2>
+        <h1>Name: <span className="italic">Chaoran Zhou</span></h1>
+        <h2>Age: <span className="italic">{calculateAge()} years old</span></h2>
+        <h2>Location: <span className="italic">Toronto, ON, Canada</span></h2>
         
         <div className="info-columns">
           <div className="info-column info-column-left" onWheel={handleScroll}>
@@ -42,9 +60,16 @@ export default function Information() {
             </p>
             <br />
             <p>
-              I am also a software engineer, I am passionate about creating software that is both beautiful and functional.
+            In early 2024, I tried many platforms for building websites for the need of a personal website. 
+            but gradually I found that they provided too few functions to implement some very subtle interactive designs. 
+            Since then, I have started to learn programming, with the initial goal of simply writing my own personal website. 
+            In the process of learning, I realized that computer science is an incredibly vast knowledge base, and that using this knowledge seems to open up a world of possibilities.
             </p>
             <br />
+            <p>
+              I am also a software engineer, I am passionate about creating software that is both beautiful and functional.
+            </p>
+            <br />  
             <p>
               I am also a software engineer, I am passionate about creating software that is both beautiful and functional.
             </p>

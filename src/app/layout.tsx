@@ -4,7 +4,10 @@ import { timesNewRoman } from "./ui/fonts"
 import "./globals.css"
 import Navigation from "./navigation"
 import Theme from "./ui/theme"
-import { useState, useEffect } from "react"
+import { useState } from "react"
+import { TitleProvider } from "./TitleContext"
+import { ContactModalProvider } from './ContactModalContext'
+import ContactModal from './ui/ContactModal'
 
 export default function RootLayout({
   children,
@@ -12,6 +15,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   const [theme, setTheme] = useState('light')
+  const [title, setTitle] = useState('')
 
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light')
@@ -21,11 +25,16 @@ export default function RootLayout({
     <html lang="en" data-theme={theme}>
       <title>Chaoran Zhou</title>
       <body className={`${timesNewRoman.variable}`}>
-        <div className="min-h-screen p-5 pt-5 relative">
-          <Navigation />
-          {children}
-          <Theme theme={theme} toggleTheme={toggleTheme} />
-        </div>
+        <ContactModalProvider>
+          <TitleProvider value={{ title, setTitle }}>
+            <div className="min-h-screen p-5 pt-5 relative">
+              <Navigation />
+              {children}
+              <Theme theme={theme} toggleTheme={toggleTheme} />
+              <ContactModal />
+            </div>
+          </TitleProvider>
+        </ContactModalProvider>
       </body>
     </html>
   )

@@ -145,3 +145,76 @@ a:hover, button:hover, [role="button"]:hover {
 .info-column-left {
   border-right: 1px solid currentColor;
 }
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -40%) rotate(-1deg);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-1deg);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+.animate-slide-up {
+  animation: slideUp 0.3s ease-in-out;
+}
+
+@keyframes modalOverlayIn {
+  from {
+    opacity: 0;
+    backdrop-filter: brightness(100%) blur(0px);
+  }
+  to {
+    opacity: 1;
+    backdrop-filter: var(--backdrop-filter);
+  }
+}
+
+@keyframes modalOverlayOut {
+  from {
+    opacity: 1;
+    backdrop-filter: var(--backdrop-filter);
+  }
+  to {
+    opacity: 0;
+    backdrop-filter: brightness(100%) blur(0px);
+  }
+}
+
+@keyframes modalOut {
+  from {
+    opacity: 1;
+    transform: translate(-50%, -50%) rotate(-1deg);
+  }
+  to {
+    opacity: 0;
+    transform: translate(-50%, -40%) rotate(-1deg);
+  }
+}
+
+[data-theme='light'] {
+  --backdrop-filter: brightness(200%) blur(1.7px);
+  --shadow-light: rgba(255, 255, 255, 0.8);
+  --shadow-dark: rgba(0, 0, 0, 0.3);
+}
+
+[data-theme='dark'] {
+  --backdrop-filter: brightness(25%) blur(1.7px);
+  --shadow-light: rgba(255, 255, 255, 0.2);
+  --shadow-dark: rgba(0, 0, 0, 0.8);
+}
