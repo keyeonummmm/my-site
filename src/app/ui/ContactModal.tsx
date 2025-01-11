@@ -1,15 +1,25 @@
 'use client'
 
-import { useEffect, useState } from 'react'
+import { useEffect, useState, FormEvent } from 'react'
 import { useContactModal } from '../ContactModalContext'
 
 export default function ContactModal() {
   const { isOpen, closeModal } = useContactModal()
   const [isClosing, setIsClosing] = useState(false)
+  const [isSubmitting, setIsSubmitting] = useState(false)
+  const [error, setError] = useState('')
+  const [success, setSuccess] = useState(false)
+  const [formData, setFormData] = useState({
+    email: '',
+    message: ''
+  })
 
   useEffect(() => {
     if (isOpen) {
       setIsClosing(false)
+      setError('')
+      setSuccess(false)
+      setFormData({ email: '', message: '' })
     }
   }, [isOpen])
 
@@ -32,6 +42,45 @@ export default function ContactModal() {
   const handleClose = () => {
     setIsClosing(true)
     setTimeout(closeModal, 300)
+  }
+
+  const handleSubmit = async (e: FormEvent) => {
+    e.preventDefault()
+    setError('')
+    setIsSubmitting(true)
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      })
+
+      const data = await response.json()
+
+      if (!response.ok) {
+        throw new Error(data.error || 'Failed to send message')
+      }
+
+      setSuccess(true)
+      setTimeout(() => {
+        handleClose()
+      }, 2000)
+    } catch (err) {
+      setError(err instanceof Error ? err.message : 'Failed to send message')
+    } finally {
+      setIsSubmitting(false)
+    }
+  }
+
+  const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    const { name, value } = e.target
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }))
   }
 
   if (!isOpen) return null
@@ -61,31 +110,44 @@ export default function ContactModal() {
           transition: 'transform 0.3s ease-in-out'
         }}
       >
-        <form className="flex flex-col gap-4">
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
           <input
             type="email"
+            name="email"
             placeholder="Email"
+            value={formData.email}
+            onChange={handleInputChange}
+            disabled={isSubmitting}
             className="p-2 bg-transparent backdrop-blur-sm"
             style={{
               boxShadow: 'inset -2px -2px 6px var(--shadow-light), inset 2px 2px 6px var(--shadow-dark)'
             }}
+            required
           />
           <textarea
+            name="message"
             placeholder="Message"
+            value={formData.message}
+            onChange={handleInputChange}
+            disabled={isSubmitting}
             rows={4}
             className="p-2 bg-transparent backdrop-blur-sm"
             style={{
               boxShadow: 'inset -2px -2px 6px var(--shadow-light), inset 2px 2px 6px var(--shadow-dark)'
             }}
+            required
           />
+          {error && <p className="text-red-500 text-sm">{error}</p>}
+          {success && <p className="text-green-500 text-sm">Message sent successfully!</p>}
           <button
             type="submit"
-            className="p-2 hover:bg-foreground hover:text-background transition-colors"
+            disabled={isSubmitting}
+            className="p-2 hover:bg-foreground hover:text-background transition-colors disabled:opacity-50"
             style={{
               boxShadow: '-2px -2px 6px var(--shadow-light), 2px 2px 6px var(--shadow-dark)'
             }}
           >
-            Send
+            {isSubmitting ? 'Sending...' : 'Send'}
           </button>
         </form>
       </div>
