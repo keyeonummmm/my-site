@@ -34,7 +34,8 @@ export default function Information() {
           <div className="info-column info-column-left" onWheel={handleScroll}>
             <p>
               I am an artist, programmer and content creator currently living, studying and working in Toronto. 
-              I am passionate about creating installations and mixed media works, investigating user interface design, databases and artificial intelligence techniques.
+              I am focusing on creating installations and mix-medium works, simultaneously I do paintings, photographs and videos. 
+              I design intuitive user interfaces, work with databases, and experiment with artificial intelligence techniques.
               I am fascinated by the artistic and at the same time by the precise and well-designed systems.
               Whether it is art, content creation or program development, they have a mutually reinforcing and complementary relationship.
               Artistic creation provides intuitive and fascinating ideas, a momentary encounter and exchange of idea, thoughts and culture; 
@@ -67,39 +68,10 @@ export default function Information() {
             </p>
             <br />
             <p>
-              I am also a software engineer, I am passionate about creating software that is both beautiful and functional.
-            </p>
-            <br />  
-            <p>
-              I am also a software engineer, I am passionate about creating software that is both beautiful and functional.
-            </p>
-            <br />  
-            <p>
-              I am also a software engineer, I am passionate about creating software that is both beautiful and functional.
-            </p>
-            <br />  
-            <p>
-              I am also a software engineer, I am passionate about creating software that is both beautiful and functional.
-            </p>
-            <br />  
-            <p>
-              I am also a software engineer, I am passionate about creating software that is both beautiful and functional.
-            </p>
-            <br />  
-            <p>
-              I am also a software engineer, I am passionate about creating software that is both beautiful and functional.
-            </p>
-            <br />  
-            <p>
-              I am also a software engineer, I am passionate about creating software that is both beautiful and functional.
-            </p>
-            <br />  
-            <p>
-              I am also a software engineer, I am passionate about creating software that is both beautiful and functional.
-            </p>
-            <br />  
-            <p>
-              I am also a software engineer, I am passionate about creating software that is both beautiful and functional.
+            I came to Canada as a student in 2019 and applied to university in the same year.
+            In addition to art school, I also considered a career in aircraft maintenance. 
+            My love of aircraft really comes from when I was a child. I chose to study art because I was clearly influenced by W. Somerset Maugham's novel “Of Moon and Sixpence”. 
+            The protagonist's pursuit of independence deeply moved me.
             </p>
             <br />  
           </div>

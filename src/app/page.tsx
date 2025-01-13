@@ -16,10 +16,9 @@ type Project = {
   year: string
   imagePath: string
   path: string
-  imageSize?: ImageSize // Optional property
+  imageSize?: ImageSize
 }
 
-// Sample projects - you'll want to replace these with your actual projects
 const projects: Project[] = [
   {
     id: '0.0.0',
