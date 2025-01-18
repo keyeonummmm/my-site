@@ -14,7 +14,7 @@ export default function Navigation() {
 
   return (
     <nav className="flex flex-col gap-4">
-      <div className="fixed top-5 left-0 right-0 flex justify-between px-20 z-50 bg-inherit">
+      <div className="fixed top-5 left-0 right-0 flex justify-between px-20 bg-inherit z-50">
         <div className="flex gap-8">
           <Link href="/">
             <h1 className={`transition-[font-style] duration-100 font-normal ${pathname === '/' ? 'italic' : ''}`}>

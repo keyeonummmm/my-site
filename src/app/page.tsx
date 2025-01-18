@@ -28,11 +28,22 @@ const projects: Project[] = [
     path: '/information',
     imageSize: {
       maxWidth: '70vw',
-      maxHeight: '70vh'
+      maxHeight: '70vh',
     }
   },
   {
     id: '0.0.1',
+    name: 'Collage exhibitions',
+    year: '2023 - 2024',
+    imagePath: '/assets/2024/D_8.webp',
+    path: '/collage',
+    imageSize: {
+      maxWidth: '60vw',
+      maxHeight: '60vh',
+    }
+  },
+  {
+    id: '0.0.2',
     name: 'Player\'s Handbook',
     year: '2024 - 2025',
     imagePath: '/assets/2024/book cover front_v3.webp',
@@ -82,7 +93,7 @@ export default function Home() {
               width: 'auto', 
               height: 'auto',
               maxWidth: projects.find(p => p.imagePath === hoveredImage)?.imageSize?.maxWidth || '80vw',
-              maxHeight: projects.find(p => p.imagePath === hoveredImage)?.imageSize?.maxHeight || '80vh'
+              maxHeight: projects.find(p => p.imagePath === hoveredImage)?.imageSize?.maxHeight || '80vh',
             }}
             priority
             onError={(e) => {

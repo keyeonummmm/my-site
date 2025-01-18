@@ -9,6 +9,10 @@ export default function Thesis() {
     setTitle('Player\'s Handbook')
     return () => setTitle('')
   }, [setTitle])
+  
+  const handleScroll = (e: React.WheelEvent) => {
+    e.stopPropagation();
+  }
 
   return <div></div>
 }
