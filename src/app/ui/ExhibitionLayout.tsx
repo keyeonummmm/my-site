@@ -21,7 +21,7 @@ export default function ExhibitionLayout({ images, text }: ExhibitionLayoutProps
     e.stopPropagation()
   }
 
-  const handleImageClick = (e: React.MouseEvent) => {
+  const handleImageClick = (e: React.MouseEvent, index: number) => {
     const imgElement = e.currentTarget.querySelector('img')
     if (imgElement) {
       enlargeImage(imgElement)
@@ -41,7 +41,7 @@ export default function ExhibitionLayout({ images, text }: ExhibitionLayoutProps
       }}
     >
       <section 
-        className="w-[61%] overflow-y-auto px-4"
+        className="w-[63%] overflow-y-auto px-4"
         style={{ 
           fontStyle: 'var(--font-style-normal)',
           color: 'var(--color-text)'
@@ -58,7 +58,16 @@ export default function ExhibitionLayout({ images, text }: ExhibitionLayoutProps
           >
             <div 
               className="relative flex justify-center cursor-pointer" 
-              onClick={handleImageClick}
+              onClick={(e) => handleImageClick(e, index)}
+              style={{
+                transition: 'transform 0.2s ease-in-out'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.transform = 'scale(1.02)'
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.transform = 'scale(1)'
+              }}
             >
               <Image
                 src={`/assets/${image.imagePath}`}
@@ -83,7 +92,7 @@ export default function ExhibitionLayout({ images, text }: ExhibitionLayoutProps
       </section>
 
       <section 
-        className="w-[39%] overflow-y-scroll px-right-6 px-left-0"
+        className="w-[37%] overflow-y-scroll px-right-6 px-left-0"
         style={{ 
           fontStyle: 'var(--font-style-normal)',
           color: 'var(--color-text)'
