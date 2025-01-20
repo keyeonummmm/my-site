@@ -6,6 +6,7 @@ import { enlargeImage } from '@/app/util'
 type ExhibitionImage = {
   imagePath: string
   alt: string
+  gallery?: string
   year: string
   width: number
   height: number
@@ -37,13 +38,13 @@ export default function ExhibitionLayout({ images, text }: ExhibitionLayoutProps
         marginLeft: '8%',
         marginRight: '4%',
         fontFamily: 'Times New Roman, serif',
-        fontSize: '0.875rem',
-        lineHeight: '1.25rem',
+        fontSize: '0.9rem',
+        lineHeight: '1.35rem',
         transition: 'background-color 0.1s cubic-bezier(0, 0, 0.2, 1), color 0.1s cubic-bezier(0, 0, 0.2, 1)'
       }}
     >
       <section 
-        className="w-[60%] overflow-y-scroll pr-8"
+        className="w-[57%] overflow-y-scroll pr-8"
         style={{ 
           fontStyle: 'var(--font-style-normal)',
           color: 'var(--color-text)'
@@ -56,7 +57,7 @@ export default function ExhibitionLayout({ images, text }: ExhibitionLayoutProps
       </section>
 
       <section 
-        className="w-[40%] overflow-y-auto pl-4 pr-2 transition-all duration-300 ease-in-out focus-section"
+        className="w-[43%] overflow-y-auto pl-4 pr-2 transition-all duration-300 ease-in-out focus-section"
         style={{ 
           fontStyle: 'var(--font-style-normal)',
           color: 'var(--color-text)'
@@ -87,6 +88,7 @@ export default function ExhibitionLayout({ images, text }: ExhibitionLayoutProps
               <Image
                 src={`/assets/${image.imagePath}`}
                 alt={image.alt}
+                title={`${image.alt}, ${image.gallery}, ${image.year}`}
                 width={image.width}
                 height={image.height}
                 className="max-w-[100%] h-auto object-contain"
@@ -100,7 +102,7 @@ export default function ExhibitionLayout({ images, text }: ExhibitionLayoutProps
                 fontSize: '0.875rem'
               }}
             >
-              {image.alt} ({image.year})
+              <i>{image.alt}</i> ({image.gallery}, {image.year})
             </figcaption>
           </figure>
         ))}

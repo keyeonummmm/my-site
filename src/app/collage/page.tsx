@@ -10,36 +10,41 @@ export default function Collage() {
   const exhibitionImages = [
     {
       imagePath: '2025/_DSC5722.webp',
-      alt: 'Collage Artwork 3',
+      alt: 'anxious yet familiar world,',
+      gallery: 'Ignite Gallery',
       year: '2025',
       width: 1000,
       height: 1000
     },
     {
       imagePath: '2025/_DSC5712.webp',
-      alt: 'Collage Artwork 4',
+      alt: 'anxious yet familiar world,',
+      gallery: 'Ignite Gallery',
       year: '2025',
       width: 1000,
       height: 1000
     },
     {
       imagePath: '2025/_DSC5716.webp',
-      alt: 'Collage Artwork 4',
+      alt: 'anxious yet familiar world,',
+      gallery: 'Ignite Gallery',
       year: '2025',
       width: 1000,
       height: 1000
     },
     {
       imagePath: 'works/group_1.webp',
-      alt: 'Collage Artwork 1',
+      alt: 'School works collection,',
       year: '2024',
+      gallery: 'Open Space',
       width: 1000,
       height: 1000
     },
     {
       imagePath: 'works/2.webp',
-      alt: 'Collage Artwork 2',
+      alt: 'School works collection,',
       year: '2024',
+      gallery: 'Open Space',
       width: 1000,
       height: 1000
     }
