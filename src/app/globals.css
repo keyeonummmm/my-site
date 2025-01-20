@@ -243,3 +243,16 @@ a:hover, button:hover, [role="button"]:hover {
 .fixed {
   z-index: 50;
 }
+
+/* Add these new styles */
+.focus-section {
+  opacity: 1;
+}
+
+main:hover .focus-section {
+  opacity: 0.4;
+}
+
+.focus-section:hover {
+  opacity: 1 !important;
+}

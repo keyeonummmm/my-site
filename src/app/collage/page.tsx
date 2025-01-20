@@ -9,6 +9,27 @@ export default function Collage() {
   
   const exhibitionImages = [
     {
+      imagePath: '2025/_DSC5722.webp',
+      alt: 'Collage Artwork 3',
+      year: '2025',
+      width: 1000,
+      height: 1000
+    },
+    {
+      imagePath: '2025/_DSC5712.webp',
+      alt: 'Collage Artwork 4',
+      year: '2025',
+      width: 1000,
+      height: 1000
+    },
+    {
+      imagePath: '2025/_DSC5716.webp',
+      alt: 'Collage Artwork 4',
+      year: '2025',
+      width: 1000,
+      height: 1000
+    },
+    {
       imagePath: 'works/group_1.webp',
       alt: 'Collage Artwork 1',
       year: '2024',
@@ -21,7 +42,7 @@ export default function Collage() {
       year: '2024',
       width: 1000,
       height: 1000
-    },
+    }
   ]
 
   useEffect(() => {

@@ -35,11 +35,11 @@ const projects: Project[] = [
     id: '0.0.1',
     name: 'Collage exhibitions',
     year: '2023 - 2024',
-    imagePath: '/assets/2024/D_8.webp',
+    imagePath: '/assets/2025/_DSC5711.webp',
     path: '/collage',
     imageSize: {
-      maxWidth: '60vw',
-      maxHeight: '60vh',
+      maxWidth: '70vw',
+      maxHeight: '70vh',
     }
   },
   {

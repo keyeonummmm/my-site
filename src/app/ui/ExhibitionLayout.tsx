@@ -30,10 +30,12 @@ export default function ExhibitionLayout({ images, text }: ExhibitionLayoutProps
 
   return (
     <main 
-      className="flex gap-1 px-[2%]"
+      className="flex gap-4"
       style={{
         height: 'calc(88vh - var(--bar-clearance))',
         marginTop: 'calc(var(--bar-clearance) + 0.2rem)',
+        marginLeft: '8%',
+        marginRight: '4%',
         fontFamily: 'Times New Roman, serif',
         fontSize: '0.875rem',
         lineHeight: '1.25rem',
@@ -41,7 +43,20 @@ export default function ExhibitionLayout({ images, text }: ExhibitionLayoutProps
       }}
     >
       <section 
-        className="w-[63%] overflow-y-auto px-4"
+        className="w-[60%] overflow-y-scroll pr-8"
+        style={{ 
+          fontStyle: 'var(--font-style-normal)',
+          color: 'var(--color-text)'
+        }}
+        onWheel={handleScroll}
+      >
+        <div className="space-y-4 max-w-[100%]">
+          {text}
+        </div>
+      </section>
+
+      <section 
+        className="w-[40%] overflow-y-auto pl-4 pr-2 transition-all duration-300 ease-in-out focus-section"
         style={{ 
           fontStyle: 'var(--font-style-normal)',
           color: 'var(--color-text)'
@@ -74,7 +89,7 @@ export default function ExhibitionLayout({ images, text }: ExhibitionLayoutProps
                 alt={image.alt}
                 width={image.width}
                 height={image.height}
-                className="max-w-[85%] h-auto object-contain"
+                className="max-w-[100%] h-auto object-contain"
                 priority={index < 2}
               />
             </div>
@@ -89,19 +104,6 @@ export default function ExhibitionLayout({ images, text }: ExhibitionLayoutProps
             </figcaption>
           </figure>
         ))}
-      </section>
-
-      <section 
-        className="w-[37%] overflow-y-scroll px-right-6 px-left-0"
-        style={{ 
-          fontStyle: 'var(--font-style-normal)',
-          color: 'var(--color-text)'
-        }}
-        onWheel={handleScroll}
-      >
-        <div className="space-y-4">
-          {text}
-        </div>
       </section>
     </main>
   )
