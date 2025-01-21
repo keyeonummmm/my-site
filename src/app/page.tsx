@@ -47,7 +47,11 @@ const projects: Project[] = [
     name: 'Player\'s Handbook',
     year: '2024 - 2025',
     imagePath: '/assets/2024/book cover front_v3.webp',
-    path: '/thesis'
+    path: '/thesis',
+    imageSize: {
+      maxWidth: '52vw',
+      maxHeight: '52vh',
+    }
   }
 ]
 

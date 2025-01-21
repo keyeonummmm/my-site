@@ -396,3 +396,32 @@ nav a:hover, nav button:hover {
 .images-section:hover {
   opacity: 1;
 }
+
+.works-container {
+  padding: 3rem;
+}
+
+.works-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 160px);
+  gap: 3%;
+  max-width: 1100px;
+  align-items: center;
+}
+
+.work-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 0.2s ease;
+}
+
+.work-item:hover {
+  opacity: 0.8;
+}
+
+.work-image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
