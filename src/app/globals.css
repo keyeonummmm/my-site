@@ -425,3 +425,43 @@ nav a:hover, nav button:hover {
   height: auto;
   object-fit: cover;
 }
+
+.work-detail-container {
+  display: grid;
+  grid-template-columns: 3fr 2fr;
+  gap: 4rem;
+  max-width: 1400px;
+  margin: 2rem auto;
+  padding: 0 2rem;
+}
+
+.work-detail-image {
+  position: relative;
+  width: 100%;
+}
+
+.detail-image {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+}
+
+.work-detail-info {
+  padding: 2rem 0;
+}
+
+.info-item {
+  margin: 1rem 0;
+}
+
+.info-description {
+  margin-top: 2rem;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .work-detail-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+}
