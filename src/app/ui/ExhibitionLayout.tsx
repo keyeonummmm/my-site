@@ -57,7 +57,7 @@ export default function ExhibitionLayout({ images, text }: ExhibitionLayoutProps
       </section>
 
       <section 
-        className="w-[43%] overflow-y-auto pl-4 pr-2 transition-all duration-300 ease-in-out focus-section"
+        className="w-[43%] overflow-y-auto pl-4 pr-2 transition-all duration-300 ease-in-out images-section"
         style={{ 
           fontStyle: 'var(--font-style-normal)',
           color: 'var(--color-text)'

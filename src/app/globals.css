@@ -60,58 +60,141 @@ a:hover, button:hover, [role="button"]:hover {
 .page-container {
   min-height: 50vh;
   padding: 2rem;
+  padding-left: 3rem;
+  padding-top: 4.5rem;
   position: relative;
 }
 
 /* Project list styles */
 .project-list {
+  perspective: 1000px;
+  padding-left: 15px;
+}
+
+.project-row {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
-  padding-top: 1.5rem;
+  align-items: center;
+  gap: 2.5rem;
+  padding: 0.001rem 0;
+  transform-style: preserve-3d;
+  transition: all 0.1s ease;
   position: relative;
   z-index: 1;
 }
 
-.project-row {
-  position: relative;
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-  padding-top: 0.01rem;
+.project-row:hover {
+  transform: translateZ(20px);
 }
 
-.project-row:hover .project-text {
-  font-style: italic;
+.project-text {
+  transition: all 0.1s ease;
+  white-space: nowrap;
 }
 
 .project-id {
-  position: absolute;
-  left: 1.8rem;
+  flex: 0 0 auto;
+  width: 80px;
 }
 
 .project-name {
-  margin-left: 60%;
+  flex: 1;
 }
 
 .project-year {
-  position: absolute;
-  right: 1.9rem;
+  flex: 0 0 auto;
+  width: 120px;
+  text-align: right;
+}
+
+/* Enhanced theme-specific effects */
+[data-theme='light'] .project-row:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(0, 0, 0, 0.03) 0%,
+    rgba(0, 0, 0, 0.01) 50%,
+    rgba(0, 0, 0, 0) 100%
+  );
+  box-shadow: 
+    0 10px 30px -5px rgba(0, 0, 0, 0.1),
+    0 5px 10px -5px rgba(0, 0, 0, 0.04);
+  transition: all 0.1s ease;
+}
+
+[data-theme='dark'] .project-row:hover {
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0.07) 0%,
+    rgba(255, 255, 255, 0.03) 50%,
+    rgba(255, 255, 255, 0) 100%
+  );
+  box-shadow: 
+    0 10px 30px -5px rgba(255, 255, 255, 0.1),
+    0 5px 10px -5px rgba(255, 255, 255, 0.04);
+  transition: all 0.1s ease;
+}
+
+[data-theme='light'] .project-row:hover .project-text {
+  text-shadow: 
+    1px 1px 0 rgba(0, 0, 0, 0.2),
+    2px 2px 3px rgba(0, 0, 0, 0.3),
+    3px 3px 5px rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] .project-row:hover .project-text {
+  text-shadow: 
+    1px 1px 0 rgba(255, 255, 255, 0.2),
+    2px 2px 3px rgba(255, 255, 255, 0.3),
+    3px 3px 5px rgba(255, 255, 255, 0.1);
 }
 
 /* Image preview styles */
 .image-preview-container {
   position: fixed;
+  top: 0;
   left: 0;
-  right: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
+  align-items: center;
   justify-content: center;
-  z-index: -1;
   pointer-events: none;
+  z-index: 2;
 }
 
-.preview-image {
-  object-fit: contain;
+.image-preview-wrapper {
+  transform-style: preserve-3d;
+  transition: transform 0.5s ease;
+  transform: translateZ(30px);
+}
+
+[data-theme='light'] .preview-image {
+  transition: all 0.5s ease;
+  box-shadow: 
+    0 20px 40px -10px rgba(0, 0, 0, 0.3),
+    0 10px 20px -5px rgba(0, 0, 0, 0.2),
+    0 0 0 1px rgba(0, 0, 0, 0.05);
+}
+
+[data-theme='dark'] .preview-image {
+  transition: all 0.5s ease;
+  box-shadow: 
+    0 20px 40px -10px rgba(255, 255, 255, 0.3),
+    0 10px 20px -5px rgba(255, 255, 255, 0.2),
+    0 0 0 1px rgba(255, 255, 255, 0.05);
+}
+
+@media (max-width: 768px) {
+  .page-container {
+    padding-left: 2rem;
+  }
+  
+  .project-row {
+    gap: 0.5rem;
+  }
+  
+  .image-preview-wrapper {
+    transform: none;
+  }
 }
 
 /* For dark theme */
@@ -244,15 +327,72 @@ a:hover, button:hover, [role="button"]:hover {
   z-index: 50;
 }
 
+/* Navigation 3D styles */
+nav a, nav button {
+  transition: all 0.1s ease;
+  transform-style: preserve-3d;
+  position: relative;
+  padding: 0.1em 0.2em;
+  transform-origin: bottom;
+}
+
+nav a:hover, nav button:hover {
+  transform: translateY(-1px) translateZ(5px);
+}
+
+/* Light theme navigation effects */
+[data-theme='light'] nav a:hover,
+[data-theme='light'] nav button:hover {
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.03) 0%,
+    rgba(0, 0, 0, 0) 50%
+  );
+  text-shadow: 
+    0 1px 0 rgba(0, 0, 0, 0.2),
+    0 2px 2px rgba(100, 100, 255, 0.2); /* Subtle blue tint */
+  box-shadow: 
+    0 4px 6px -2px rgba(70, 70, 255, 0.1), /* Subtle blue shadow */
+    0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+/* Dark theme navigation effects */
+[data-theme='dark'] nav a:hover,
+[data-theme='dark'] nav button:hover {
+  background: linear-gradient(
+    to top,
+    rgba(255, 255, 255, 0.07) 0%,
+    rgba(255, 255, 255, 0) 50%
+  );
+  text-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.2),
+    0 2px 2px rgba(200, 200, 255, 0.3); /* Subtle light blue tint */
+  box-shadow: 
+    0 4px 6px -2px rgba(200, 200, 255, 0.1), /* Subtle light blue shadow */
+    0 2px 4px -1px rgba(255, 255, 255, 0.06);
+}
+
+/* Active/current page link effects */
+[data-theme='light'] nav a.active,
+[data-theme='light'] nav button.active {
+  text-shadow: 
+    0 1px 0 rgba(0, 0, 0, 0.2),
+    0 2px 2px rgba(255, 100, 100, 0.2); /* Subtle red tint for active items */
+}
+
+[data-theme='dark'] nav a.active,
+[data-theme='dark'] nav button.active {
+  text-shadow: 
+    0 1px 0 rgba(255, 255, 255, 0.2),
+    0 2px 2px rgba(255, 200, 200, 0.3); /* Subtle pink tint for active items */
+}
+
 /* Add these new styles */
-.focus-section {
-  opacity: 1;
-}
-
-main:hover .focus-section {
+.images-section {
   opacity: 0.4;
+  transition: opacity 0.3s ease;
 }
 
-.focus-section:hover {
-  opacity: 1 !important;
+.images-section:hover {
+  opacity: 1;
 }

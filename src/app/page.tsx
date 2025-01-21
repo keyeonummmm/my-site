@@ -59,48 +59,49 @@ export default function Home() {
       <div className="project-list">
         {projects.map((project) => (
           <Link href={project.path} key={project.id}>
-          <div 
-            key={project.id} 
-            className="project-row"
-            onMouseEnter={() => setHoveredImage(project.imagePath)}
-            onMouseLeave={() => setHoveredImage(null)}
-          >
-            <span className="project-text project-id">
-              {project.id}
-            </span>
-            <span className="project-text project-name">
-              {project.name}
-            </span>
-            <span className="project-text project-year">
-              {project.year}
-            </span>
-          </div>
-        </Link>
+            <div 
+              className="project-row"
+              onMouseEnter={() => setHoveredImage(project.imagePath)}
+              onMouseLeave={() => setHoveredImage(null)}
+            >
+              <span className="project-text project-id">
+                {project.id}
+              </span>
+              <span className="project-text project-name">
+                {project.name}
+              </span>
+              <span className="project-text project-year">
+                {project.year}
+              </span>
+            </div>
+          </Link>
         ))}
       </div>
       
 
       {hoveredImage && (
         <div className="image-preview-container">
-          <Image
-            src={hoveredImage}
-            alt="Project Preview"
-            width={0}
-            height={0}
-            sizes="80vw"
-            className="preview-image"
-            style={{ 
-              width: 'auto', 
-              height: 'auto',
-              maxWidth: projects.find(p => p.imagePath === hoveredImage)?.imageSize?.maxWidth || '80vw',
-              maxHeight: projects.find(p => p.imagePath === hoveredImage)?.imageSize?.maxHeight || '80vh',
-            }}
-            priority
-            onError={(e) => {
-              console.error('Error loading image:', hoveredImage);
-              setHoveredImage(null);
-            }}
-          />
+          <div className="image-preview-wrapper">
+            <Image
+              src={hoveredImage}
+              alt="Project Preview"
+              width={0}
+              height={0}
+              sizes="80vw"
+              className="preview-image"
+              style={{ 
+                width: 'auto', 
+                height: 'auto',
+                maxWidth: projects.find(p => p.imagePath === hoveredImage)?.imageSize?.maxWidth || '80vw',
+                maxHeight: projects.find(p => p.imagePath === hoveredImage)?.imageSize?.maxHeight || '80vh',
+              }}
+              priority
+              onError={(e) => {
+                console.error('Error loading image:', hoveredImage);
+                setHoveredImage(null);
+              }}
+            />
+          </div>
         </div>
       )}
     </div>
