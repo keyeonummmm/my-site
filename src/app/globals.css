@@ -26,7 +26,6 @@
   }
 }
 
-/* Global styles for all text elements */
 html {
   font-size: 13pt;
 }
@@ -56,25 +55,20 @@ a:hover, button:hover, [role="button"]:hover {
   }
 }
 
-/* Container layouts */
 .page-container {
   min-height: 50vh;
+  max-width: 1600px;
+  margin: 0 auto;
   padding: 2rem;
-  padding-left: 3rem;
+  padding-left: 5rem;
   padding-top: 4.5rem;
   position: relative;
-}
-
-/* Project list styles */
-.project-list {
-  perspective: 1000px;
-  padding-left: 15px;
 }
 
 .project-row {
   display: flex;
   align-items: center;
-  gap: 2.5rem;
+  gap: 2.7rem;
   padding: 0.001rem 0;
   transform-style: preserve-3d;
   transition: all 0.1s ease;
@@ -106,7 +100,6 @@ a:hover, button:hover, [role="button"]:hover {
   text-align: right;
 }
 
-/* Enhanced theme-specific effects */
 [data-theme='light'] .project-row:hover {
   background: linear-gradient(
     90deg,
@@ -147,7 +140,6 @@ a:hover, button:hover, [role="button"]:hover {
     3px 3px 5px rgba(255, 255, 255, 0.1);
 }
 
-/* Image preview styles */
 .image-preview-container {
   position: fixed;
   top: 0;
@@ -197,7 +189,6 @@ a:hover, button:hover, [role="button"]:hover {
   }
 }
 
-/* For dark theme */
 [data-theme='dark'] .pdf-link {
   color: white;
   background: black;
@@ -210,25 +201,26 @@ a:hover, button:hover, [role="button"]:hover {
 }
 
 .info-columns {
-  display: flex;
-  gap: 2rem;
-  margin-top: 2rem;
-  height: 70vh;
+  min-height: 50vh;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 2rem;
+  padding-left: 4.5rem;
+  padding-top: 4.5rem;
+  position: relative;
 }
 
 .info-column {
-  flex: 1;
-  height: 75vh;
-  overflow-y: auto;
+  height: 50vh;
   padding: 1rem;
   border-right: 1px solid currentColor;
 }
 
 .info-column:last-child {
-  border-right: none;
+  border-right: 1px solid currentColor;
 }
 
-.info-column-left {
+.info-column-low {
   border-right: 1px solid currentColor;
 }
 
@@ -327,67 +319,7 @@ a:hover, button:hover, [role="button"]:hover {
   z-index: 50;
 }
 
-/* Navigation 3D styles */
-nav a, nav button {
-  transition: all 0.1s ease;
-  transform-style: preserve-3d;
-  position: relative;
-  padding: 0.1em 0.2em;
-  transform-origin: bottom;
-}
 
-nav a:hover, nav button:hover {
-  transform: translateY(-1px) translateZ(5px);
-}
-
-/* Light theme navigation effects */
-[data-theme='light'] nav a:hover,
-[data-theme='light'] nav button:hover {
-  background: linear-gradient(
-    to top,
-    rgba(0, 0, 0, 0.03) 0%,
-    rgba(0, 0, 0, 0) 50%
-  );
-  text-shadow: 
-    0 1px 0 rgba(0, 0, 0, 0.2),
-    0 2px 2px rgba(100, 100, 255, 0.2); /* Subtle blue tint */
-  box-shadow: 
-    0 4px 6px -2px rgba(70, 70, 255, 0.1), /* Subtle blue shadow */
-    0 2px 4px -1px rgba(0, 0, 0, 0.06);
-}
-
-/* Dark theme navigation effects */
-[data-theme='dark'] nav a:hover,
-[data-theme='dark'] nav button:hover {
-  background: linear-gradient(
-    to top,
-    rgba(255, 255, 255, 0.07) 0%,
-    rgba(255, 255, 255, 0) 50%
-  );
-  text-shadow: 
-    0 1px 0 rgba(255, 255, 255, 0.2),
-    0 2px 2px rgba(200, 200, 255, 0.3); /* Subtle light blue tint */
-  box-shadow: 
-    0 4px 6px -2px rgba(200, 200, 255, 0.1), /* Subtle light blue shadow */
-    0 2px 4px -1px rgba(255, 255, 255, 0.06);
-}
-
-/* Active/current page link effects */
-[data-theme='light'] nav a.active,
-[data-theme='light'] nav button.active {
-  text-shadow: 
-    0 1px 0 rgba(0, 0, 0, 0.2),
-    0 2px 2px rgba(255, 100, 100, 0.2); /* Subtle red tint for active items */
-}
-
-[data-theme='dark'] nav a.active,
-[data-theme='dark'] nav button.active {
-  text-shadow: 
-    0 1px 0 rgba(255, 255, 255, 0.2),
-    0 2px 2px rgba(255, 200, 200, 0.3); /* Subtle pink tint for active items */
-}
-
-/* Add these new styles */
 .images-section {
   opacity: 0.4;
   transition: opacity 0.3s ease;
@@ -398,14 +330,17 @@ nav a:hover, nav button:hover {
 }
 
 .works-container {
-  padding: 3rem;
+  padding-left: 5rem;
+  padding-top: 1.5rem;
+  max-width: 1600px;
+  margin: 0 auto;
 }
 
 .works-grid {
   display: grid;
   grid-template-columns: repeat(auto-fill, 160px);
   gap: 3%;
-  max-width: 1100px;
+  max-width: 1000px;
   align-items: center;
 }
 
@@ -429,10 +364,10 @@ nav a:hover, nav button:hover {
 .work-detail-container {
   display: grid;
   grid-template-columns: 3fr 2fr;
-  gap: 4rem;
-  max-width: 1400px;
+  gap: 3rem;
+  max-width: 1600px;
   margin: 2rem auto;
-  padding: 0 2rem;
+  padding-left: 5rem;
 }
 
 .work-detail-image {
@@ -463,5 +398,67 @@ nav a:hover, nav button:hover {
   .work-detail-container {
     grid-template-columns: 1fr;
     gap: 2rem;
+  }
+}
+
+.navbar-container {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding-left: 5rem;
+  padding-top: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.navbar-links {
+  display: flex;
+  gap: 2rem;
+  align-items: center;
+}
+
+.navbar-title {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.navbar-link {
+  transition: font-style 0.1s ease;
+}
+
+.navbar-link.active {
+  font-style: italic;
+}
+
+.about-dropdown {
+  display: flex;
+  align-items: center;
+}
+
+.dropdown-content {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+  gap: 0.5rem;
+}
+
+.dropdown-link {
+  transition: font-style 0.1s ease;
+}
+
+.dropdown-link.active {
+  font-style: italic;
+}
+
+@media (max-width: 768px) {
+  .navbar-container {
+    padding-left: 2rem;
+  }
+  
+  .navbar-links {
+    gap: 1rem;
   }
 }

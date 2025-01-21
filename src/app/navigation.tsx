@@ -13,53 +13,52 @@ export default function Navigation() {
   const { openModal } = useContactModal()
 
   return (
-    <nav className="flex flex-col gap-4">
-      <div className="fixed top-5 left-0 right-0 flex justify-between px-20 bg-inherit z-50">
-        <div className="flex gap-8">
-          <Link href="/">
-            <h1 className={`transition-[font-style] duration-100 font-normal ${pathname === '/' ? 'italic' : ''}`}>
-              Source
-            </h1>
-          </Link>
-          <Link 
-            href="/works" 
-            className={`transition-[font-style] duration-100 ${pathname === '/works' ? 'italic' : ''}`}
-          >
-            Works
-          </Link>
-          <div className="flex items-center">
-            <button
-              type="button"
-              onClick={() => setShowAboutLinks(!showAboutLinks)}
-              className={`transition-[font-style] duration-100 cursor-pointer ${pathname.startsWith('/about') ? 'italic' : ''}`}
+    <nav>
+        <div className="navbar-container">
+          <div className="navbar-links">
+            <Link href="/" className={`navbar-link ${pathname === '/' ? 'active' : ''}`}>
+              <h1>Source</h1>
+            </Link>
+            <Link 
+              href="/works" 
+              className={`navbar-link ${pathname === '/works' ? 'active' : ''}`}
             >
-              About
-            </button>
-            {showAboutLinks && (
-              <span className="whitespace-nowrap">
-                : <Link href="/about/bio" className={`transition-[font-style] duration-100 ${pathname === '/about/bio' ? 'italic' : ''}`}>Bio</Link>
-                {" / "}
-                <Link href="/about/index" className={`transition-[font-style] duration-100 ${pathname === '/about/index' ? 'italic' : ''}`}>Index</Link>
-                {" / "}
-                <Link href="/about/contact" 
-                  onClick={(e) => {
-                    e.preventDefault()
-                    openModal()
-                  }} 
-                  className={`transition-[font-style] duration-100 ${pathname === '/about/contact' ? 'italic' : ''}`}
-                >
-                  Contact
-                </Link>
-              </span>
-            )}
+              Works
+            </Link>
+            <div className="about-dropdown">
+              <button
+                type="button"
+                onClick={() => setShowAboutLinks(!showAboutLinks)}
+                className={`navbar-link ${pathname.startsWith('/about') ? 'active' : ''}`}
+              >
+                About
+              </button>
+              {showAboutLinks && (
+                <div className="dropdown-content">
+                  : <Link href="/about/bio" className={`dropdown-link ${pathname === '/about/bio' ? 'active' : ''}`}>Bio</Link>
+                  {" / "}
+                  <Link href="/about/index" className={`dropdown-link ${pathname === '/about/index' ? 'active' : ''}`}>Index</Link>
+                  {" / "}
+                  <Link 
+                    href="/about/contact" 
+                    onClick={(e) => {
+                      e.preventDefault()
+                      openModal()
+                    }} 
+                    className={`dropdown-link ${pathname === '/about/contact' ? 'active' : ''}`}
+                  >
+                    Contact
+                  </Link>
+                </div>
+              )}
+            </div>
           </div>
+          {title && (
+            <div className="navbar-title">
+              {title}
+            </div>
+          )}
         </div>
-        {title && (
-          <div className="absolute left-1/2 transform -translate-x-1/2">
-            {title}
-          </div>
-        )}
-      </div>
     </nav>
   )
 }

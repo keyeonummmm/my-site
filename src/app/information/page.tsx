@@ -24,8 +24,6 @@ export default function Information() {
   }
 
   return (
-    <div>
-      <div className="pt-5 px-20">
         <div className="info-columns">
           <div className="info-column" onWheel={handleScroll}>
             <h1>Name: <span className="italic">Chaoran Zhou</span></h1>
@@ -76,7 +74,5 @@ export default function Information() {
             </p>
           </div>
         </div>
-      </div>
-    </div>
   )
 }
