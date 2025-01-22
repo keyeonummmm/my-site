@@ -1,10 +1,16 @@
+'use client'
+
 import Link from 'next/link'
 import Image from 'next/image'
 import { worksList } from './works'
 
+const handleWheel = (e: React.WheelEvent) => {
+  e.stopPropagation();
+};
+
 export default function Works() {
   return (
-    <main className="works-container">
+    <main className="works-container" onWheel={handleWheel}>
       <div className="works-grid">
         {worksList.map((work, index) => (
           <Link 

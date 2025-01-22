@@ -57,14 +57,15 @@ a:hover, button:hover, [role="button"]:hover {
 }
 
 .page-container {
-  min-height: 50vh;
+  height: 80vh;
   max-width: 1600px;
   margin: 0 auto;
   padding: 2rem;
   padding-left: 5rem;
   padding-right: 5rem;
-  padding-top: 4.5rem;
+  padding-top: 4rem;
   position: relative;
+  overflow-y: scroll;
 }
 
 .project-row {
@@ -348,8 +349,10 @@ a:hover, button:hover, [role="button"]:hover {
   padding-left: 5rem;
   padding-right: 5rem;
   padding-top: 1.5rem;
+  height: 80vh;
   max-width: 1600px;
   margin: 0 auto;
+  overflow-y: scroll;
 }
 
 .works-grid {
@@ -449,6 +452,7 @@ a:hover, button:hover, [role="button"]:hover {
   padding-left: 5rem;
   padding-right: 5rem;
   padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
   display: flex;
   justify-content: space-between;
   align-items: center;

@@ -55,11 +55,15 @@ const projects: Project[] = [
   }
 ]
 
+const handleWheel = (e: React.WheelEvent) => {
+  e.stopPropagation();
+};
+
 export default function Home() {
   const [hoveredImage, setHoveredImage] = useState<string | null>(null)
 
   return (
-    <div className="page-container">
+    <div className="page-container" onWheel={handleWheel}>
       <div className="project-list">
         {projects.map((project) => (
           <Link href={project.path} key={project.id}>
