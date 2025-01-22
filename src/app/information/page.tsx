@@ -2,6 +2,7 @@
 
 import { useEffect } from 'react'
 import { useTitle } from '../TitleContext'
+import { officeTimesRound } from '../ui/fonts'
 
 const calculateAge = () =>{
   const birthday = new Date('2002-07-16');
@@ -24,13 +25,13 @@ export default function Information() {
   }
 
   return (
-        <div className="info-columns">
-          <div className="info-column" onWheel={handleScroll}>
-            <h1>Name: <span className="italic">Chaoran Zhou</span></h1>
-            <h2>Age: <span className="italic">{calculateAge()} years old</span></h2>
-            <h2>Location: <span className="italic">Toronto, ON, Canada</span></h2>
-            <br />
-            <p>
+    <div className={`${officeTimesRound.variable} info-columns`}>
+      <div className="info-column" onWheel={handleScroll}>
+        <h1>Name: <span className="italic">Chaoran Zhou</span></h1>
+        <h2>Age: <span className="italic">{calculateAge()} years old</span></h2>
+        <h2>Location: <span className="italic">Toronto, ON, Canada</span></h2>
+        <br />
+        <p>
               I am an artist, programmer and content creator currently living, studying and working in Toronto. 
               I am focusing on creating installations and mix-medium works, simultaneously I do paintings, photographs and videos. 
               I design intuitive user interfaces, work with databases, and experiment with artificial intelligence techniques.
@@ -43,6 +44,20 @@ export default function Information() {
           </div>
           
           <div className="info-column" onWheel={handleScroll}>
+            <p>
+              I am currently a student of the Drawing & Painting program at OCAD University, 
+              I am working on my thesis(graduation project), which will be on show in early May 2025.
+            </p>
+            <br />
+            <p>
+              In 2022, I began to shift from painting to installation. 
+              Installation practice provides possibilities in terms of expression, interactivity, and interdisciplinary integration, 
+              using a variety of elements such as space, materials, sound, and light to create a multi-sensory experience.
+            </p>
+            <p>
+              I am fascinated by the artistic and at the same time by the precise and well-designed systems.
+              Whether it is art, content creation or program development, they have a mutually reinforcing and complementary relationship.
+            </p>
             <p>
               I am currently a student of the Drawing & Painting program at OCAD University, 
               I am working on my thesis(graduation project), which will be on show in early May 2025.

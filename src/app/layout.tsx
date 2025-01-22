@@ -1,6 +1,6 @@
 "use client"
 
-import { timesNewRoman } from "./ui/fonts"
+import { sourceSerif } from "./ui/fonts"
 import "./globals.css"
 import Navigation from "./navigation"
 import Theme from "./ui/theme"
@@ -24,7 +24,7 @@ export default function RootLayout({
   return (
     <html lang="en" data-theme={theme}>
       <title>Chaoran Zhou</title>
-      <body className={`${timesNewRoman.variable}`}>
+      <body className={`${sourceSerif.variable}`}>
         <ContactModalProvider>
           <TitleProvider value={{ title, setTitle }}>
             <div className="min-h-screen p-5 pt-5 relative">

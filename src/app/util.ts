@@ -9,13 +9,14 @@ export const enlargeImage = (imageElement: HTMLImageElement) => {
   overlay.style.left = '0';
   overlay.style.width = '100%';
   overlay.style.height = '100%';
-  overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+  overlay.style.backdropFilter = 'blur(0px)';
+  overlay.style.backdropFilter = 'blur(0px)';
   overlay.style.display = 'flex';
   overlay.style.justifyContent = 'center';
   overlay.style.alignItems = 'center';
   overlay.style.zIndex = '9999';
   overlay.style.cursor = 'pointer';
-  overlay.style.transition = 'background-color 0.3s ease';
+  overlay.style.transition = 'backdrop-filter 0.3s ease, backdrop-filter 0.3s ease';
 
   // Clone the original image
   const enlargedImg = imageElement.cloneNode(true) as HTMLImageElement;
@@ -50,7 +51,8 @@ export const enlargeImage = (imageElement: HTMLImageElement) => {
 
   // Trigger opening animation
   requestAnimationFrame(() => {
-    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
+    overlay.style.backdropFilter = 'blur(5px)';
+    overlay.style.backdropFilter = 'blur(5px)';
     enlargedImg.style.top = `${(window.innerHeight - finalHeight) / 2}px`;
     enlargedImg.style.left = `${(window.innerWidth - finalWidth) / 2}px`;
     enlargedImg.style.width = finalWidth + 'px';
@@ -64,7 +66,8 @@ export const enlargeImage = (imageElement: HTMLImageElement) => {
 
   // Close handler with reverse animation
   const closeEnlarged = () => {
-    overlay.style.backgroundColor = 'rgba(0, 0, 0, 0)';
+    overlay.style.backdropFilter = 'blur(0px)';
+    overlay.style.backdropFilter = 'blur(0px)';
     enlargedImg.style.top = originalRect.top + 'px';
     enlargedImg.style.left = originalRect.left + 'px';
     enlargedImg.style.width = originalRect.width + 'px';

@@ -2,6 +2,7 @@
 
 import Image from 'next/image'
 import { enlargeImage } from '@/app/util'
+import { officeTimesRound } from '@/app/ui/fonts'
 
 type ExhibitionImage = {
   imagePath: string
@@ -12,14 +13,24 @@ type ExhibitionImage = {
   height: number
 }
 
+type ExhibitionInfo = {
+  title: string
+  time: string
+  location?: string
+  curator?: string
+}
+
 interface ExhibitionLayoutProps {
   images: ExhibitionImage[]
   text: React.ReactNode
+  info: ExhibitionInfo
 }
 
-export default function ExhibitionLayout({ images, text }: ExhibitionLayoutProps) {
+export default function ExhibitionLayout({ images, text, info }: ExhibitionLayoutProps) {
   const handleScroll = (e: React.WheelEvent) => {
-    e.stopPropagation()
+    e.preventDefault()
+    const container = e.currentTarget
+    container.scrollTop += e.deltaY
   }
 
   const handleImageClick = (e: React.MouseEvent, index: number) => {
@@ -30,60 +41,31 @@ export default function ExhibitionLayout({ images, text }: ExhibitionLayoutProps
   }
 
   return (
-    <main 
-      className="flex gap-4"
-      style={{
-        height: 'calc(88vh - var(--bar-clearance))',
-        marginTop: 'calc(var(--bar-clearance) + 0.2rem)',
-        marginLeft: '8%',
-        marginRight: '4%',
-        fontFamily: 'Times New Roman, serif',
-        fontSize: '0.9rem',
-        lineHeight: '1.35rem',
-        transition: 'background-color 0.1s cubic-bezier(0, 0, 0.2, 1), color 0.1s cubic-bezier(0, 0, 0.2, 1)'
-      }}
-    >
+    <main className={`${officeTimesRound.variable} exhibition-layout`}>
       <section 
-        className="w-[57%] overflow-y-scroll pr-8"
-        style={{ 
-          fontStyle: 'var(--font-style-normal)',
-          color: 'var(--color-text)'
-        }}
+        className="exhibition-text"
         onWheel={handleScroll}
       >
-        <div className="space-y-4 max-w-[100%]">
+        <div className="exhibition-info">
+          <h1>{info.title}</h1>
+          <p>{info.time}</p>
+          {info.location && <p>{info.location}</p>}
+          {info.curator && <p>Curator: {info.curator}</p>}
+        </div>
+        <div className="text-content">
           {text}
         </div>
       </section>
 
       <section 
-        className="w-[43%] overflow-y-auto pl-4 pr-2 transition-all duration-300 ease-in-out images-section"
-        style={{ 
-          fontStyle: 'var(--font-style-normal)',
-          color: 'var(--color-text)'
-        }}
+        className="exhibition-images"
         onWheel={handleScroll}
       >
         {images.map((image, index) => (
-          <figure 
-            key={index} 
-            className="mb-12 last:mb-8"
-            style={{
-              transition: 'opacity 0.3s cubic-bezier(0, 0, 0.2, 1)'
-            }}
-          >
+          <figure key={index} className="image-figure">
             <div 
-              className="relative flex justify-center cursor-pointer" 
+              className="image-container"
               onClick={(e) => handleImageClick(e, index)}
-              style={{
-                transition: 'transform 0.2s ease-in-out'
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.transform = 'scale(1.02)'
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.transform = 'scale(1)'
-              }}
             >
               <Image
                 src={`/assets/${image.imagePath}`}
@@ -91,17 +73,11 @@ export default function ExhibitionLayout({ images, text }: ExhibitionLayoutProps
                 title={`${image.alt}, ${image.gallery}, ${image.year}`}
                 width={image.width}
                 height={image.height}
-                className="max-w-[100%] h-auto object-contain"
+                className="exhibition-image"
                 priority={index < 2}
               />
             </div>
-            <figcaption 
-              className="mt-3 text-center"
-              style={{
-                color: 'var(--color-deemphasized-text)',
-                fontSize: '0.875rem'
-              }}
-            >
+            <figcaption className="image-caption">
               <i>{image.alt}</i> ({image.gallery}, {image.year})
             </figcaption>
           </figure>

@@ -2,13 +2,14 @@
 
 import Link from "next/link"
 import { useState } from "react"
-import { usePathname } from "next/navigation"
+import { usePathname, useRouter } from "next/navigation"
 import { useTitle } from "./TitleContext"
 import { useContactModal } from './ContactModalContext'
 
 export default function Navigation() {
   const [showAboutLinks, setShowAboutLinks] = useState(false)
   const pathname = usePathname()
+  const router = useRouter()
   const { title } = useTitle()
   const { openModal } = useContactModal()
 
@@ -57,6 +58,15 @@ export default function Navigation() {
             <div className="navbar-title">
               {title}
             </div>
+          )}
+          {pathname !== '/' && (
+            <button 
+              onClick={() => router.back()}
+              className="navbar-return"
+              aria-label="Return to previous page"
+            >
+              Back
+            </button>
           )}
         </div>
     </nav>

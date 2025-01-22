@@ -6,6 +6,12 @@ import ExhibitionLayout from '../ui/ExhibitionLayout'
 
 export default function Collage() {
   const { setTitle } = useTitle()
+
+  const exhibitionInfo = {
+    title: 'Works and Exhibitions during University',
+    time: '2020 - 2025',
+    location: 'OCAD University, Toronto',
+  }
   
   const exhibitionImages = [
     {
@@ -95,6 +101,7 @@ export default function Collage() {
 
   return (
     <ExhibitionLayout 
+      info={exhibitionInfo}
       images={exhibitionImages}
       text={textContent}
     />
