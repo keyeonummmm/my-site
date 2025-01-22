@@ -7,6 +7,8 @@ export interface WorkItem {
   dimensions: string;
   medium: string;
   description: string;
+  additionalInfo?: string;
+  subImages?: string[];
 }
 
 export const worksList: WorkItem[] = [
@@ -58,6 +60,27 @@ export const worksList: WorkItem[] = [
     year: "2024",
     dimensions: "68 1/8 x 88 in (156.2x223.5 cm)",
     medium: "Oil on Canvas",
-    description: "Description for Work 5"
+    description: "Description for Work 5",
+    subImages: [
+      "/assets/works/Brother_51 x 51 x 15 3:4 inches (129.5 x 130 x 40cm) (2).webp",
+      "/assets/works/Brother_51 x 51 x 15 3:4 inches (129.5 x 130 x 40cm) (3).webp",
+    ]
   },
+  {
+    id: "work6",
+    title: "Work 6",
+    imagePath: "/assets/2025/_DSC5729.webp",
+    link: "/works/work6",
+    year: "2025",
+    dimensions: "51 x 51 x 15 3/4 inches (129.5 x 130 x 40cm)",
+    medium: "Oil on Canvas",
+    description: "Description for Work 6",
+    subImages: [
+      "/assets/2025/_DSC5730.webp",
+      "/assets/2025/_DSC5731.webp",
+      "/assets/2025/_DSC5732.webp",
+      "/assets/2025/_DSC5733.webp",
+      "/assets/2025/_DSC5734.webp",
+    ]
+  }
 ]
