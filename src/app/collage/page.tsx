@@ -11,6 +11,7 @@ export default function Collage() {
     title: 'Works and Exhibitions during University',
     time: '2024 - 2025',
     location: 'OCAD University, Toronto',
+    pdfUrl: 'pdfs/anxious_yet_familiar_world.pdf'
   }
   
   const exhibitionImages = [

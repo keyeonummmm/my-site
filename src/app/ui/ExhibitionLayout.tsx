@@ -18,6 +18,7 @@ type ExhibitionInfo = {
   time: string
   location?: string
   curator?: string
+  pdfUrl?: string
 }
 
 interface ExhibitionLayoutProps {
@@ -51,6 +52,17 @@ export default function ExhibitionLayout({ images, text, info }: ExhibitionLayou
           <p>{info.time}</p>
           {info.location && <p>{info.location}</p>}
           {info.curator && <p>Curator: {info.curator}</p>}
+          {info.pdfUrl && (
+            <a 
+              href={`/${info.pdfUrl}`}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="pdf-link underline"
+            >
+              Exhibition paper ↗
+            </a>
+          )}
+          <div className="info-underline"></div>
         </div>
         <div className="text-content">
           {text}
