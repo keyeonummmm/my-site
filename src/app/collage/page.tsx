@@ -9,7 +9,7 @@ export default function Collage() {
 
   const exhibitionInfo = {
     title: 'Works and Exhibitions during University',
-    time: '2020 - 2025',
+    time: '2024 - 2025',
     location: 'OCAD University, Toronto',
   }
   
@@ -63,38 +63,16 @@ export default function Collage() {
 
   const textContent = (
     <div>
-      <h1>Collage Exhibitions</h1>
-      
       <p>
-        I am an artist, programmer and content creator currently living, studying 
-        and working in Toronto.
+      The major exhibition I participated in while at university was Anxious Yet Familiar World, which featured the work of five Toronto artists.
+      Anxious Yet Familiar explores the hidden layers of our surroundings—both human and non-human—revealing the interplay between discomfort and familiarity in everyday life. 
+      Through diverse materials and concepts, the exhibition examines themes of memory, decay, climate change, and transformation, creating an environment where pleasure and tension coexist. 
+      It invites viewers to embrace overlooked moments, reconsider their engagement with the world, and find beauty in the subtle complexities of daily life.
       </p>
-      
-      <h2>Artistic Practice</h2>
+      <br />
       <p>
-        I am focusing on creating installations and mix-medium works, simultaneously 
-        I do paintings, photographs and videos. I design intuitive user interfaces, 
-        work with databases, and experiment with artificial intelligence techniques.
-      </p>
-      
-      <h2>Philosophy</h2>
-      <p>
-        I am fascinated by the artistic and at the same time by the precise and 
-        well-designed systems. Whether it is art, content creation or program 
-        development, they have a mutually reinforcing and complementary relationship.
-      </p>
-      
-      <h2>Approach</h2>
-      <p>
-        Artistic creation provides intuitive and fascinating ideas, a momentary 
-        encounter and exchange of idea, thoughts and culture. Content creation is 
-        the carrier of continuous ideas, it is a combination of knowledge, 
-        information, and taste.
-      </p>
-      
-      <p>
-        Software engineering provides tangible solutions to practical problems, 
-        it satisfies a need like any other product or service.
+      Additionally, I have independently organized exhibitions featuring my paintings, sculptures, and installations, showcasing works created both in my courses and through personal exploration. 
+      My practice primarily focuses on capturing subtle nuances and psychological experiences in everyday life, emphasizing the impact of these emotional and cognitive processes through experimental approaches to materials and presentation techniques.
       </p>
     </div>
   )

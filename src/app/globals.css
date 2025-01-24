@@ -63,7 +63,7 @@ a:hover, button:hover, [role="button"]:hover {
   padding: 2rem;
   padding-left: 5rem;
   padding-right: 5rem;
-  padding-top: 4rem;
+  padding-top: 4.5rem;
   position: relative;
   overflow-y: scroll;
 }
@@ -71,8 +71,8 @@ a:hover, button:hover, [role="button"]:hover {
 .project-row {
   display: flex;
   align-items: center;
-  gap: 2.7rem;
-  padding: 0.001rem 0;
+  gap: 5rem;
+  margin: -0.4rem 0;
   transform-style: preserve-3d;
   transition: all 0.1s ease;
   position: relative;
@@ -91,6 +91,7 @@ a:hover, button:hover, [role="button"]:hover {
 .project-id {
   flex: 0 0 auto;
   width: 80px;
+  font-size: 1rem;
 }
 
 .project-name {
@@ -348,7 +349,6 @@ a:hover, button:hover, [role="button"]:hover {
 .works-container {
   padding-left: 5rem;
   padding-right: 5rem;
-  padding-top: 1.5rem;
   height: 80vh;
   max-width: 1600px;
   margin: 0 auto;
@@ -388,7 +388,6 @@ a:hover, button:hover, [role="button"]:hover {
   padding: 2rem;
   padding-left: 5rem;
   padding-right: 5rem;
-  padding-top: 4.5rem;
   position: relative;
 }
 
@@ -508,7 +507,6 @@ a:hover, button:hover, [role="button"]:hover {
   padding: 2rem;
   padding-left: 5rem;
   padding-right: 5rem;
-  padding-top: 4.5rem;
   position: relative;
   font-family: var(--font-office-times-round);
   font-size: 14px;

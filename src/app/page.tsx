@@ -3,6 +3,7 @@
 import { useState } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
+import { officeTimesRound } from './ui/fonts'
 
 // Project data structure
 type ImageSize = {
@@ -21,7 +22,7 @@ type Project = {
 
 const projects: Project[] = [
   {
-    id: '0.0.0',
+    id: '000',
     name: 'Information',
     year: '&.& - &.&',
     imagePath: '/assets/2024/info.webp',
@@ -32,7 +33,7 @@ const projects: Project[] = [
     }
   },
   {
-    id: '0.0.1',
+    id: '001',
     name: 'Collage exhibitions',
     year: '2023 - 2024',
     imagePath: '/assets/2025/_DSC5711.webp',
@@ -43,7 +44,7 @@ const projects: Project[] = [
     }
   },
   {
-    id: '0.0.2',
+    id: '002',
     name: 'Player\'s Handbook',
     year: '2024 - 2025',
     imagePath: '/assets/2024/book cover front_v3.webp',
@@ -64,7 +65,7 @@ export default function Home() {
 
   return (
     <div className="page-container" onWheel={handleWheel}>
-      <div className="project-list">
+        <div className="project-list">
         {projects.map((project) => (
           <Link href={project.path} key={project.id}>
             <div 
@@ -72,7 +73,7 @@ export default function Home() {
               onMouseEnter={() => setHoveredImage(project.imagePath)}
               onMouseLeave={() => setHoveredImage(null)}
             >
-              <span className="project-text project-id">
+              <span className={`project-text project-id ${officeTimesRound.className}`}>
                 {project.id}
               </span>
               <span className="project-text project-name">
@@ -80,10 +81,10 @@ export default function Home() {
               </span>
               <span className="project-text project-year">
                 {project.year}
-              </span>
-            </div>
-          </Link>
-        ))}
+                </span>
+              </div>
+            </Link>
+          ))}
       </div>
       
 
