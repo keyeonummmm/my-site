@@ -207,7 +207,7 @@ a:hover, button:hover, [role="button"]:hover {
 .info-columns {
   display: flex;
   height: 88vh;
-  max-width: 1600px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
   padding-left: 5rem;
@@ -222,17 +222,9 @@ a:hover, button:hover, [role="button"]:hover {
 .info-column {
   flex: 35% 32% 32%;
   padding: 1rem;
-  border-right: 1px solid currentColor;
+  border-bottom: 1px solid currentColor;
   height: 100%;
   overflow-y: scroll;
-}
-
-.info-column:last-child {
-  border-right: 1px solid currentColor;
-}
-
-.info-column-last {
-  border-right: 1px solid currentColor;
 }
 
 @keyframes fadeIn {

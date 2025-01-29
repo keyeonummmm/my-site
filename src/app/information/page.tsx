@@ -32,62 +32,17 @@ export default function Information() {
         <h2>Location: <span className="italic">Toronto, ON, Canada</span></h2>
         <br />
         <p>
-              I am an artist, programmer and content creator currently living, studying and working in Toronto. 
-              I am focusing on creating installations and mix-medium works, simultaneously I do paintings, photographs and videos. 
-              I design intuitive user interfaces, work with databases, and experiment with artificial intelligence techniques.
-              I am fascinated by the artistic and at the same time by the precise and well-designed systems.
-              Whether it is art, content creation or program development, they have a mutually reinforcing and complementary relationship.
-              Artistic creation provides intuitive and fascinating ideas, a momentary encounter and exchange of idea, thoughts and culture; 
-              content creation is the carrier of continuous ideas, it is a combination of knowledge, information, and taste; 
-              Software engineering provides tangible solutions to practical problems, it satisfies a need like any other product or service.
-            </p>
-          </div>
-          
-          <div className="info-column" onWheel={handleScroll}>
-            <p>
-              I am currently a student of the Drawing & Painting program at OCAD University, 
-              I am working on my thesis(graduation project), which will be on show in early May 2025.
-            </p>
-            <br />
-            <p>
-              In 2022, I began to shift from painting to installation. 
-              Installation practice provides possibilities in terms of expression, interactivity, and interdisciplinary integration, 
-              using a variety of elements such as space, materials, sound, and light to create a multi-sensory experience.
-            </p>
-            <p>
-              I am fascinated by the artistic and at the same time by the precise and well-designed systems.
-              Whether it is art, content creation or program development, they have a mutually reinforcing and complementary relationship.
-            </p>
-            <p>
-              I am currently a student of the Drawing & Painting program at OCAD University, 
-              I am working on my thesis(graduation project), which will be on show in early May 2025.
-            </p>
-            <br />
-            <p>
-              In 2022, I began to shift from painting to installation. 
-              Installation practice provides possibilities in terms of expression, interactivity, and interdisciplinary integration, 
-              using a variety of elements such as space, materials, sound, and light to create a multi-sensory experience.
-            </p>
-            <p>
-              I am fascinated by the artistic and at the same time by the precise and well-designed systems.
-              Whether it is art, content creation or program development, they have a mutually reinforcing and complementary relationship.
-            </p>
-          </div>
-          
-          <div className="info-column" onWheel={handleScroll}>
-            <p>
-              In early 2024, I tried many platforms for building websites for the need of a personal website. 
-              but gradually I found that they provided too few functions to implement some very subtle interactive designs. 
-              Since then, I have started to learn programming, with the initial goal of simply writing my own personal website.
-            </p>
-            <br />
-            <p>
-              I came to Canada as a student in 2019 and applied to university in the same year.
-              In addition to art school, I also considered a career in aircraft maintenance. 
-              My love of aircraft really comes from when I was a child. I chose to study art because I was clearly influenced by W. Somerset Maugham's novel "Of Moon and Sixpence". 
-              The protagonist's pursuit of independence deeply moved me.
-            </p>
-          </div>
-        </div>
+        Chaoran Zhou is a Chinese-born artist currently pursuing a Bachelor of Fine Arts of Drawing and Painting at OCAD University in Toronto. 
+        Specializing in both conceptual installations and paintings, 
+        Chaoran explores diverse visual expressions that connect audiences to thought-provoking concepts.
+        </p>
+        <br />
+        <p>
+        Alongside a strong commitment to visual art, Chaoran is also passionate about software development, 
+        bringing a creative and analytical approach to technology. Driven by a desire to foster collaboration among fellow creatives, 
+        Chaoran aims to build a thriving community of content and culture makers in the near future.
+        </p>
+      </div>
+    </div>
   )
 }
