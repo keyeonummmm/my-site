@@ -32,6 +32,10 @@ export default function Information() {
         <h2>Location: <span className="italic">Toronto, ON, Canada</span></h2>
         <br />
         <p>
+          This is the 
+        </p>
+        <br />
+        <p>
         Chaoran Zhou is a Chinese-born artist currently pursuing a Bachelor of Fine Arts of Drawing and Painting at OCAD University in Toronto. 
         Specializing in both conceptual installations and paintings, 
         Chaoran explores diverse visual expressions that connect audiences to thought-provoking concepts.

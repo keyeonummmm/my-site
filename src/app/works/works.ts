@@ -63,7 +63,7 @@ export const worksList: WorkItem[] = [
     year: "2024",
     dimensions: "49 1/4 x 51 x 15 3/4 inches (125 x 130 x 40cm)",
     medium: "Mix media",
-    description: "",
+    description: "It takes the traces of humanity—produced by human society and experienced in personal life—and emphasizes and displays them in a textured and representative architectural container.",
     subImages: [
       "/assets/works/Brother_51 x 51 x 15 3:4 inches (129.5 x 130 x 40cm) (2).webp",
       "/assets/works/Brother_51 x 51 x 15 3:4 inches (129.5 x 130 x 40cm) (3).webp",
