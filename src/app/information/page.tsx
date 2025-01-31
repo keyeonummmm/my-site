@@ -3,6 +3,7 @@
 import { useEffect } from 'react'
 import { useTitle } from '../TitleContext'
 import { officeTimesRound } from '../ui/fonts'
+import Link from 'next/link'
 
 const calculateAge = () =>{
   const birthday = new Date('2002-07-16');
@@ -32,7 +33,7 @@ export default function Information() {
         <h2>Location: <span className="italic">Toronto, ON, Canada</span></h2>
         <br />
         <p>
-          This is the 
+        <span className="">THIS IS THE PERSONAL WEBSITE OF CHAORAN ZHOU, SHOWCASING HIS ART AND PROJECTS IN OTHER FIELDS.</span>
         </p>
         <br />
         <p>
@@ -45,6 +46,10 @@ export default function Information() {
         Alongside a strong commitment to visual art, Chaoran is also passionate about software development, 
         bringing a creative and analytical approach to technology. Driven by a desire to foster collaboration among fellow creatives, 
         Chaoran aims to build a thriving community of content and culture makers in the near future.
+        </p>
+        <br />
+        <p>
+        <Link href="/about/index"><span className="underline">CLICK HERE TO SEE SOFTWARE AND OTHER PROJECTS</span></Link>
         </p>
       </div>
     </div>
