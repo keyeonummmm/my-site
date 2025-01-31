@@ -73,14 +73,13 @@ a:hover, button:hover, [role="button"]:hover {
   align-items: center;
   gap: 5rem;
   margin: -0.4rem 0;
-  transform-style: preserve-3d;
-  transition: all 0.1s ease;
   position: relative;
   z-index: 1;
+  transition: all 0.1s ease;
 }
 
 .project-row:hover {
-  transform: translateZ(20px);
+  transform: none;
 }
 
 .project-text {
@@ -111,9 +110,7 @@ a:hover, button:hover, [role="button"]:hover {
     rgba(0, 0, 0, 0.01) 50%,
     rgba(0, 0, 0, 0) 100%
   );
-  box-shadow: 
-    0 10px 30px -5px rgba(0, 0, 0, 0.1),
-    0 5px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: all 0.1s ease;
 }
 
@@ -124,24 +121,16 @@ a:hover, button:hover, [role="button"]:hover {
     rgba(255, 255, 255, 0.03) 50%,
     rgba(255, 255, 255, 0) 100%
   );
-  box-shadow: 
-    0 10px 30px -5px rgba(255, 255, 255, 0.1),
-    0 5px 10px -5px rgba(255, 255, 255, 0.04);
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.05);
   transition: all 0.1s ease;
 }
 
 [data-theme='light'] .project-row:hover .project-text {
-  text-shadow: 
-    1px 1px 0 rgba(0, 0, 0, 0.2),
-    2px 2px 3px rgba(0, 0, 0, 0.3),
-    3px 3px 5px rgba(0, 0, 0, 0.1);
+  text-shadow: none;
 }
 
 [data-theme='dark'] .project-row:hover .project-text {
-  text-shadow: 
-    1px 1px 0 rgba(255, 255, 255, 0.2),
-    2px 2px 3px rgba(255, 255, 255, 0.3),
-    3px 3px 5px rgba(255, 255, 255, 0.1);
+  text-shadow: none;
 }
 
 .image-preview-container {
@@ -158,26 +147,18 @@ a:hover, button:hover, [role="button"]:hover {
 }
 
 .image-preview-wrapper {
-  transform-style: preserve-3d;
-  transition: transform 0.5s ease;
-  transform: translateZ(30px);
+  transition: opacity 0.5s ease;
 }
 
-[data-theme='light'] .preview-image {
+/* [data-theme='light'] .preview-image {
   transition: all 0.5s ease;
-  box-shadow: 
-    0 20px 40px -10px rgba(0, 0, 0, 0.3),
-    0 10px 20px -5px rgba(0, 0, 0, 0.2),
-    0 0 0 1px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
 }
 
 [data-theme='dark'] .preview-image {
   transition: all 0.5s ease;
-  box-shadow: 
-    0 20px 40px -10px rgba(255, 255, 255, 0.3),
-    0 10px 20px -5px rgba(255, 255, 255, 0.2),
-    0 0 0 1px rgba(255, 255, 255, 0.05);
-}
+  box-shadow: 0 4px 12px rgba(255, 255, 255, 0.1);
+} */
 
 @media (max-width: 768px) {
   .page-container {
