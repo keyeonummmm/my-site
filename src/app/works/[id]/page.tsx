@@ -1,8 +1,15 @@
 import WorkDetail from '@/app/ui/WorkDetail'
 import { worksList } from '../works'
 import { notFound } from 'next/navigation'
+import { Metadata } from 'next'
 
-export default async function WorkPage({ params }: { params: { id: string } }) {
+interface PageProps {
+  params: {
+    id: string
+  }
+}
+
+export default async function WorkPage({ params }: PageProps) {
   const work = worksList.find(w => w.id === params.id)
   
   if (!work) {
