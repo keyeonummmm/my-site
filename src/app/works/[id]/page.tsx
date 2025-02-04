@@ -2,11 +2,11 @@ import WorkDetail from '@/app/ui/WorkDetail'
 import { worksList } from '../works'
 import { notFound } from 'next/navigation'
 
-type Props = {
+export default async function WorkPage({
+  params,
+}: {
   params: { id: string }
-}
-
-export default async function WorkPage({ params }: Props) {
+}) {
   const work = worksList.find(w => w.id === params.id)
   
   if (!work) {
