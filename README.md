@@ -1,19 +1,11 @@
 # Personal Web Site
 
-This Is My Personal Website Showcasing Art Works And Projects Across Different Years as an visual artist and designer.
+This Is My Personal Website Showcasing Art Works And Projects.
 
 ## Technologies
 
 - [Next.js](https://nextjs.org) - React Framework
-- TypeScript - For Type Safety
-- TailwindCSS - For Styling
-
-## Project Structure
-
-- `public/assets/` - Contains All Images And PDFs, organized By Year
-- `styles/global.css` - Global Styling Definitions
-- Theme Toggle Available In Bottom Right Corner
-- Pure Black And White Color Scheme
+- [Front source] -Office Times Round Mono, Source Sarif4(regular, italic)
 
 ## Development
 
