@@ -614,3 +614,45 @@ a:hover, button:hover, [role="button"]:hover {
   line-height: 1.3rem;
   position: relative;
 }
+
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding-right: 3rem;
+  padding-left: 3rem;
+  padding-top: 3rem;
+  font-family: var(--font-office-times-round);
+  font-size: 14px;
+  line-height: 1.3rem;
+  overflow-y: scroll;
+  max-height: 88vh;
+}
+
+.item-container {
+  border-top: 1px solid var(--foreground);
+  border-bottom: 1px solid var(--foreground);
+  margin-top: -1px;
+}
+
+[data-theme='dark'] .item-container {
+  border-top: 1px solid #FFFFFF;
+  border-bottom: 1px solid #FFFFFF;
+}
+
+.item-link {
+  display: block;
+  padding: 1rem 0;
+  text-decoration: none;
+  color: var(--foreground);
+  font-size: 14px;
+  line-height: 1.3rem;
+}
+
+.item-link:hover {
+  font-style: italic;
+}
+
+.item-description,
+.divider {
+  display: none;
+}
