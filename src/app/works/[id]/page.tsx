@@ -2,16 +2,7 @@ import WorkDetail from '@/app/ui/WorkDetail'
 import { worksList } from '../works'
 import { notFound } from 'next/navigation'
 
-interface PageParams {
-  id: string;
-}
-
-export default async function WorkPage({
-  params,
-}: {
-  params: PageParams;
-  searchParams?: { [key: string]: string | string[] | undefined };
-}) {
+export default async function WorkPage({ params }: any) {
   const work = worksList.find(w => w.id === params.id)
   
   if (!work) {
