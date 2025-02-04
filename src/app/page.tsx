@@ -56,11 +56,6 @@ const projects: Project[] = [
   }
 ]
 
-// const handleWheel = (e: React.WheelEvent) => {
-//   e.preventDefault();
-//   e.stopPropagation();
-// };
-
 export default function Home() {
   const [hoveredImage, setHoveredImage] = useState<string | null>(null)
 
