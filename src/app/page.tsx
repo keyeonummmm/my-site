@@ -56,11 +56,16 @@ const projects: Project[] = [
   }
 ]
 
+const handleWheel = (e: React.WheelEvent) => {
+  e.preventDefault();
+  e.stopPropagation();
+};
+
 export default function Home() {
   const [hoveredImage, setHoveredImage] = useState<string | null>(null)
 
   return (
-    <div className="page-container" >
+    <div className="page-container" onWheel={handleWheel}>
         <div className="project-list">
         {projects.map((project) => (
           <Link href={project.path} key={project.id}>
@@ -101,7 +106,7 @@ export default function Home() {
                 maxHeight: projects.find(p => p.imagePath === hoveredImage)?.imageSize?.maxHeight || '80vh',
               }}
               priority
-              onError={(e) => {
+              onError={() => {
                 console.error('Error loading image:', hoveredImage);
                 setHoveredImage(null);
               }}
