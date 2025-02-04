@@ -1,12 +1,22 @@
 import WorkDetail from '@/app/ui/WorkDetail'
 import { worksList } from '../works'
 import { notFound } from 'next/navigation'
+import { Metadata } from 'next'
 
-type PageProps = {
-  params: Record<string, string>
+type Props = {
+  params: { id: string }
+  searchParams: { [key: string]: string | string[] | undefined }
 }
 
-export default async function WorkPage({ params }: PageProps) {
+export async function generateMetadata({ params }: Props): Promise<Metadata> {
+  const work = worksList.find(w => w.id === params.id)
+  
+  return {
+    title: work ? work.title : 'Work Not Found'
+  }
+}
+
+export default async function WorkPage({ params }: Props) {
   const work = worksList.find(w => w.id === params.id)
   
   if (!work) {
