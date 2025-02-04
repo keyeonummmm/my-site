@@ -1,4 +1,3 @@
-import { Metadata } from 'next'
 import WorkDetail from '@/app/ui/WorkDetail'
 import { worksList } from '../works'
 import { notFound } from 'next/navigation'
