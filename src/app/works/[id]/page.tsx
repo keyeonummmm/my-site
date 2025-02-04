@@ -1,7 +1,6 @@
 import WorkDetail from '@/app/ui/WorkDetail'
 import { worksList } from '../works'
 import { notFound } from 'next/navigation'
-import { Metadata } from 'next'
 
 interface PageProps {
   params: {
