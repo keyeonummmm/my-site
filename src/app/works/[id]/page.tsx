@@ -3,23 +3,25 @@ import { worksList } from '../works'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
 
+type PageParams = {
+  params: Promise<{ id: string }>
+}
+
 export async function generateMetadata({
   params,
-}: {
-  params: { id: string }
-}): Promise<Metadata> {
-  const work = worksList.find(w => w.id === params.id)
+}: PageParams): Promise<Metadata> {
+  const resolvedParams = await params
+  const work = worksList.find(w => w.id === resolvedParams.id)
   return {
     title: work ? work.title : 'Work Not Found'
   }
 }
 
-export default function WorkPage({
+export default async function WorkPage({
   params,
-}: {
-  params: { id: string }
-}) {
-  const work = worksList.find(w => w.id === params.id)
+}: PageParams) {
+  const resolvedParams = await params
+  const work = worksList.find(w => w.id === resolvedParams.id)
   
   if (!work) {
     notFound()
