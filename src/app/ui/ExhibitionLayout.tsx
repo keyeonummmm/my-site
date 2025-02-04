@@ -34,7 +34,7 @@ export default function ExhibitionLayout({ images, text, info }: ExhibitionLayou
     container.scrollTop += e.deltaY
   }
 
-  const handleImageClick = (e: React.MouseEvent, index: number) => {
+  const handleImageClick = (e: React.MouseEvent) => {
     const imgElement = e.currentTarget.querySelector('img')
     if (imgElement) {
       enlargeImage(imgElement)
@@ -77,7 +77,7 @@ export default function ExhibitionLayout({ images, text, info }: ExhibitionLayou
           <figure key={index} className="image-figure">
             <div 
               className="image-container"
-              onClick={(e) => handleImageClick(e, index)}
+              onClick={handleImageClick}
             >
               <Image
                 src={`/assets/${image.imagePath}`}

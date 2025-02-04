@@ -57,6 +57,7 @@ const projects: Project[] = [
 ]
 
 const handleWheel = (e: React.WheelEvent) => {
+  e.preventDefault();
   e.stopPropagation();
 };
 
