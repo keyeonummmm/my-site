@@ -26,7 +26,7 @@ export default function Theme({ theme, toggleTheme }: ThemeProps) {
     }, []);
 
     return (
-      <div className="fixed bottom-5 right-16 flex items-center gap-4">
+      <div className="fixed bottom-5 right-16 flex items-center gap-4 theme-toggle-container">
         <button
           onClick={() => {
             console.log('Theme button clicked')

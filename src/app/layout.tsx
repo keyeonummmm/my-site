@@ -23,7 +23,6 @@ export default function RootLayout({
 
   return (
     <html lang="en" data-theme={theme}>
-      <title>Chaoran Zhou</title>
       <body className={`${sourceSerif.variable}`}>
         <ContactModalProvider>
           <TitleProvider value={{ title, setTitle }}>

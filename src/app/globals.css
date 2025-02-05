@@ -656,3 +656,430 @@ a:hover, button:hover, [role="button"]:hover {
 .divider {
   display: none;
 }
+
+/* Mobile Optimizations */
+@media screen and (max-width: 767px) {
+  html {
+    font-size: 14pt;
+  }
+
+  .navbar-container {
+    padding: 0.5rem 1rem;
+  }
+
+  .navbar-links {
+    display: none;
+  }
+
+  .mobile-menu-button {
+    position: relative;
+    z-index: 1000;
+    padding: 0.5rem;
+  }
+
+  .hamburger {
+    width: 24px;
+    height: 20px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  .hamburger span {
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: var(--foreground);
+    transition: all 0.3s ease;
+  }
+
+  .hamburger.open span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+  }
+
+  .hamburger.open span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger.open span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+  }
+
+  .mobile-menu-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--background);
+    z-index: 999;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+  }
+
+  .mobile-menu-overlay.open {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .mobile-menu-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    gap: 2rem;
+  }
+
+  .mobile-menu-link {
+    font-size: 1.5rem;
+    text-decoration: none;
+    color: var(--foreground);
+    transition: all 0.2s ease;
+  }
+
+  /* Mobile Homepage Redesign */
+  .page-container {
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    padding: 0;
+    overflow: hidden;
+  }
+
+  .project-list-container {
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    background-color: var(--background);
+    border-top: 1px solid var(--foreground);
+  }
+
+  .project-list {
+    height: 100%;
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .project-list::-webkit-scrollbar {
+    display: none; 
+  }
+
+  .project-row {
+    flex: 0 0 100%;
+    min-width: 100%;
+    scroll-snap-align: start;
+    scroll-snap-stop: always;
+    padding: 1.5rem;
+    border-right: 1px solid var(--foreground);
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    height: 100%;
+  }
+ 
+  .project-text {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .project-id {
+    width: auto;
+    font-size: 0.9rem;
+    opacity: 0.7;
+  }
+
+  .project-name {
+    width: auto;
+    font-size: 1.1rem;
+  }
+
+  .project-year {
+    width: auto;
+    text-align: left;
+    font-size: 0.9rem;
+  }
+
+  .project-image-container {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    opacity: 0.4;
+    transition: opacity 0.3s ease;
+  }
+
+  .project-image-container:hover {
+    opacity: 1;
+  }
+
+  .project-image {
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+  }
+
+  .mobile-about-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .mobile-dropdown-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+
+  .mobile-dropdown-content .mobile-menu-link {
+    font-size: 1.2rem;
+    opacity: 0.8;
+  }
+
+  /* Hide desktop navigation on mobile */
+  .navbar-links {
+    display: none;
+  }
+
+  /* Show mobile menu */
+  .mobile-menu-button {
+    display: block;
+  }
+
+  /* Works Grid Layout */
+  .works-container {
+    padding: 1rem;
+    height: calc(100vh - 60px);
+  }
+
+  .works-grid {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 1rem;
+    padding-bottom: 4rem;
+  }
+
+  /* Exhibition Layout */
+  .exhibition-layout {
+    flex-direction: column;
+    padding: 1rem;
+    height: auto;
+    max-height: none;
+  }
+
+  .exhibition-text {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+
+  .exhibition-images {
+    width: 100%;
+    padding: 0;
+    opacity: 1;
+  }
+
+  .image-figure {
+    margin-bottom: 2rem;
+  }
+
+  /* Work Detail Pages */
+  .work-detail-layout {
+    flex-direction: column;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .work-detail-images {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 2rem;
+  }
+
+  .work-detail-info {
+    width: 100%;
+    padding: 0;
+  }
+
+  .sub-images-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .info-columns {
+    flex-direction: column;
+    padding: 1rem;
+    height: auto;
+  }
+
+  .info-column {
+    width: 100%;
+    padding: 0;
+    margin-bottom: 2rem;
+    height: auto;
+  }
+
+  .bio-page-container {
+    padding: 1rem;
+    height: auto;
+  }
+
+  /* Contact Modal */
+  .modal-content {
+    width: 90%;
+    max-width: none;
+    margin: 1rem;
+    padding: 1.5rem;
+  }
+
+  /* Common Mobile Optimizations */
+  .page-container {
+    height: calc(100vh - 60px);
+    padding: 1rem;
+    padding-top: 3.5rem;
+  }
+
+  /* Touch Optimizations */
+  .image-container,
+  .work-item,
+  .project-row,
+  .sub-image-wrapper {
+    cursor: pointer;
+    touch-action: manipulation;
+  }
+
+  /* Hide hover effects on mobile */
+  .project-row:hover,
+  .work-item:hover,
+  .image-container:hover {
+    transform: none;
+    opacity: 1;
+  }
+
+  .image-preview-container {
+    display: none;
+  }
+
+  /* Improve scroll behavior */
+  .page-container,
+  .works-container,
+  .exhibition-text,
+  .exhibition-images,
+  .work-detail-images,
+  .work-detail-info,
+  .info-column {
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  /* Hide scrollbars on mobile */
+  .page-container::-webkit-scrollbar,
+  .works-container::-webkit-scrollbar,
+  .exhibition-text::-webkit-scrollbar,
+  .exhibition-images::-webkit-scrollbar,
+  .work-detail-images::-webkit-scrollbar,
+  .work-detail-info::-webkit-scrollbar,
+  .info-column::-webkit-scrollbar {
+    display: none;
+  }
+
+  a, button, [role="button"] {
+    display: inline-flex;
+    align-items: center;
+  }
+
+  .theme-toggle:hover {
+    opacity: 1;
+  }
+
+  .scroll-indicator {
+    position: fixed;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+  }
+
+  .scroll-dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: var(--foreground);
+    opacity: 0.3;
+  }
+
+  .scroll-dot.active {
+    opacity: 1;
+  }
+
+  /* Hide theme toggle on mobile */
+  .theme-toggle {
+    display: none;
+  }
+  
+  /* Style for theme toggle in mobile menu */
+  .mobile-theme-toggle {
+    font-size: 1.2rem;
+    opacity: 0.8;
+    padding: 0.5rem;
+    cursor: pointer;
+  }
+
+  /* Adjust theme toggle position for mobile */
+  .fixed {
+    z-index: 50;
+  }
+
+  /* Hide time display on mobile but keep theme toggle */
+  .theme-toggle-container span {
+    display: none;
+  }
+
+  /* Position the theme toggle button for mobile */
+  .theme-toggle-container {
+    bottom: 1rem;
+    right: 1rem;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .mobile-menu-button {
+    display: none;
+  }
+}
+
+/* Small phone optimization */
+@media screen and (max-width: 380px) {
+  .navbar-links {
+    gap: 0.5rem;
+  }
+
+  .works-grid {
+    grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  }
+
+  html {
+    font-size: 13pt;
+  }
+
+  .page-container {
+    padding: 0.8rem;
+    padding-top: 3.2rem;
+  }
+}
