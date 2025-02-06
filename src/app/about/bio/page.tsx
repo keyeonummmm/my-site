@@ -28,7 +28,7 @@ export default function Bio() {
         </p>
         <br />
         <p>
-        As a start-up developer, Chaoran's software was designed with the initial intention of exploring the form of an online-to-offline collaborative community platform. He is also exploring artificial intelligence technologies.
+        As a start-up developer, his software was designed with the initial intention of exploring the form of an online-to-offline collaborative community platform. He is also exploring artificial intelligence technologies.
         </p>
         <br />
         <div className="exhibition-catalogue">
