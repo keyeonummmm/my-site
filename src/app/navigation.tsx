@@ -38,7 +38,7 @@ export default function Navigation() {
             </button>
             {showAboutLinks && (
               <div className="dropdown-content">
-                <Link href="/about/bio" className={`dropdown-link ${pathname === '/about/bio' ? 'active' : ''}`}>Bio</Link>
+                <Link href="/about/bio" className={`dropdown-link ${pathname === '/about/bio' ? 'active' : ''}`}>: Bio</Link>
                 {" / "}
                 <Link href="/about/index" className={`dropdown-link ${pathname === '/about/index' ? 'active' : ''}`}>Index</Link>
                 {" / "}

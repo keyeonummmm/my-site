@@ -53,6 +53,16 @@ export default function Bio() {
             BIOGRAPHY CHAORAN ZHOU.PDF ↗
         </a>
       </div>
+      <div className="cv-pdf-link">
+        <a 
+          href="/pdfs/CV.pdf"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="underline"
+        >
+          CV.PDF ↗
+        </a>
+      </div>
         </div>
       </div>
     </div>
