@@ -44,7 +44,7 @@ export default function Information() {
         </p>
         <br />
         <p>
-        In Chaoran's current project, he translates the technical principles of artificial intelligence into visual forms, exploring the similarities and differences between artificial intelligence and human intelligence, human consciousness, and the ethical practice of conceptual expression.
+        In Chaoran&apos;s current project, he translates the technical principles of artificial intelligence into visual forms, exploring the similarities and differences between artificial intelligence and human intelligence, human consciousness, and the ethical practice of conceptual expression.
         </p>
         <br />
         <p>
