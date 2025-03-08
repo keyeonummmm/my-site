@@ -16,7 +16,6 @@ export default function RootLayout({
 }) {
   const [theme, setTheme] = useState('light')
   const [title, setTitle] = useState('')
-
   const toggleTheme = () => {
     setTheme(theme === 'light' ? 'dark' : 'light')
   }

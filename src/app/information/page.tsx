@@ -38,16 +38,24 @@ export default function Information() {
         <br />
         <p>
         Chaoran Zhou is a Chinese-born artist currently pursuing a Bachelor of Fine Arts of Drawing and Painting at OCAD University in Toronto. 
-        Specializing in both conceptual installations and paintings, 
-        Chaoran explores diverse visual expressions that connect audiences to thought-provoking concepts.
+        Chaoran explores topics from life experience and the process of the times, he connects the audience with thought-provoking concepts through his conceptual installations and paintings. 
+        By exploring the physical properties and discursive contexts of different materials, and by narrative through amplification, exaggeration and conceptual elaboration,
+        he creates a visual language that is both poetic and critical, and invites viewers to reflect on the deeper meanings and issuesof the world around them.
         </p>
         <br />
         <p>
-        Alongside a strong commitment to visual art, Chaoran is also passionate about software development, 
-        bringing a creative and analytical approach to technology. Driven by a desire to foster collaboration among fellow creatives, 
-        Chaoran aims to build a thriving community of content and culture makers in the near future.
+        In Chaoran's current project, he translates the technical principles of artificial intelligence into visual forms, exploring the similarities and differences between artificial intelligence and human intelligence, human consciousness, and the ethical practice of conceptual expression.
         </p>
         <br />
+        <p>
+        Alongside his passion for visual art, Chaoran has a great interest in programming and what it can do in the real world, 
+        He has worked on an artificial intelligence model that serves artistic purposes, as well as some more practical software. 
+        He is working on a browser extension and an online collaboration platform that helps creative workers develop ideas into projects.
+        </p>
+        <br />
+        <p>
+        <Link href="/works"><span className="underline">CLICK HERE TO SEE ALL ART WORKS</span></Link>
+        </p>
         <p>
         <Link href="/about/index"><span className="underline">CLICK HERE TO SEE SOFTWARE AND OTHER PROJECTS</span></Link>
         </p>

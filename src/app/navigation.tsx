@@ -20,7 +20,7 @@ export default function Navigation() {
         <MobileMenu />
         <div className="navbar-links">
           <Link href="/" className={`navbar-link ${pathname === '/' ? 'active' : ''}`}>
-            <h1>Source</h1>
+            <h1>Home</h1>
           </Link>
           <Link 
             href="/works" 

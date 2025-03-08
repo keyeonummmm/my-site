@@ -10,5 +10,7 @@ export default function Thesis() {
     return () => setTitle('')
   }, [setTitle])
 
-  return <div></div>
+  return <div className="font-size-2xl top-50px flex flex-col items-center">
+    <h1>The Upcoming Thesis Project, revealing the details on May</h1>
+  </div>
 }

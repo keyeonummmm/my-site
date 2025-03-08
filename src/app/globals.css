@@ -373,6 +373,19 @@ a:hover, button:hover, [role="button"]:hover {
 .work-detail-image {
   width: 100%;
   margin-bottom: 2rem;
+  min-height: 400px;
+  position: relative;
+}
+
+.image-loading {
+  background-color: rgba(128, 128, 128, 0.1);
+  animation: pulse 1.5s infinite ease-in-out;
+  border-radius: 4px;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
 }
 
 .detail-image {
@@ -380,6 +393,19 @@ a:hover, button:hover, [role="button"]:hover {
   height: auto;
   object-fit: contain;
   cursor: pointer;
+  transition: opacity 0.3s ease;
+}
+
+.detail-image.portrait {
+  max-height: 80vh;
+  width: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+.detail-image.landscape {
+  width: 100%;
+  height: auto;
 }
 
 .sub-images-container {
@@ -392,12 +418,28 @@ a:hover, button:hover, [role="button"]:hover {
 .sub-image-wrapper {
   width: 100%;
   cursor: pointer;
+  min-height: 300px;
+  position: relative;
+  margin-bottom: 1rem;
 }
 
 .sub-image {
   width: 100%;
   height: auto;
   object-fit: contain;
+  transition: opacity 0.3s ease;
+}
+
+.sub-image.portrait {
+  max-height: 80vh;
+  width: auto;
+  margin: 0 auto;
+  display: block;
+}
+
+.sub-image.landscape {
+  width: 100%;
+  height: auto;
 }
 
 .work-detail-info {
