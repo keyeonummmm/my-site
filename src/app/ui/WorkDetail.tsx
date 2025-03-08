@@ -104,7 +104,7 @@ export default function WorkDetail({
       .then(() => {
         // All images preloaded
       })
-      .catch(error => {
+      .catch(_error => {
         // Handle errors
       });
       
