@@ -5,7 +5,7 @@ This Is My Personal Website Showcasing Art Works And Projects.
 ## Sources
 
 - [Next.js](https://nextjs.org) - React Framework
-- Front source [Office Times Round Mono](https://boulevardlab.com/Office-Times), [Source Sarif4](https://fonts.google.com/specimen/Source+Serif+4)
+- Font source [Office Times Round Mono](https://boulevardlab.com/Office-Times), [Source Sarif4](https://fonts.google.com/specimen/Source+Serif+4)
 
 ## Development
 
