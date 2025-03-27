@@ -1,5 +1,7 @@
 # Personal Web Site
 
+[zhoucr.com](https://zhoucr.com)
+
 This Is My Personal Website Showcasing Art Works And Projects.
 
 ## Sources
@@ -9,4 +11,4 @@ This Is My Personal Website Showcasing Art Works And Projects.
 
 ## Deployment
 
-This Site Is On [Vercel](https://vercel.com). 
+This Site Is On [Vercel](vercel.com). 
