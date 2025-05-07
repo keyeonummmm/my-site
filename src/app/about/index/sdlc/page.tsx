@@ -448,7 +448,7 @@ The seven phases of software development life cycle:
 
                         <div className="bg-gradient-to-r from-blue-50 to-indigo-50 dark:from-blue-950 dark:to-indigo-950 p-6 rounded-lg border border-blue-100 dark:border-blue-900 mb-8 text-center">
                             <p className="text-lg font-medium text-blue-800 dark:text-blue-300">
-                                "As a <span className="text-indigo-600 dark:text-indigo-400 font-semibold">[user]</span>, I want <span className="text-purple-600 dark:text-purple-400 font-semibold">[goal]</span> so that <span className="text-pink-600 dark:text-pink-400 font-semibold">[benefit]</span>."
+                                &quot;As a <span className="text-indigo-600 dark:text-indigo-400 font-semibold">[user]</span>, I want <span className="text-purple-600 dark:text-purple-400 font-semibold">[goal]</span> so that <span className="text-pink-600 dark:text-pink-400 font-semibold">[benefit]</span>.&quot;
                             </p>
                         </div>
 
@@ -490,7 +490,7 @@ The seven phases of software development life cycle:
                                         <span className="font-medium">I want</span> to log in with my credentials,
                                     </p>
                                     <p className="text-slate-700 dark:text-slate-300">
-                                        <span className="font-medium">So that</span> I can access my account and use the application's features.
+                                        <span className="font-medium">So that</span> I can access my account and use the application&apos;s features.
                                     </p>
                                 </div>
                             </div>
@@ -505,7 +505,7 @@ The seven phases of software development life cycle:
                                 </div>
                                 <div>
                                     <h4 className="text-lg font-medium text-slate-800 dark:text-slate-200">Be Clear and Concise</h4>
-                                    <p className="text-slate-600 dark:text-slate-400">Keep your user stories simple and to the point. Avoid technical jargon and focus on the user's perspective.</p>
+                                    <p className="text-slate-600 dark:text-slate-400">Keep your user stories simple and to the point. Avoid technical jargon and focus on the user&apos;s perspective.</p>
                                 </div>
                             </div>
 
@@ -515,7 +515,7 @@ The seven phases of software development life cycle:
                                 </div>
                                 <div>
                                     <h4 className="text-lg font-medium text-slate-800 dark:text-slate-200">Focus on User Needs</h4>
-                                    <p className="text-slate-600 dark:text-slate-400">Emphasize what the user wants to accomplish, not how the system should implement it. The "so that" part helps clarify the value to the user.</p>
+                                    <p className="text-slate-600 dark:text-slate-400">Emphasize what the user wants to accomplish, not how the system should implement it. The &quot;so that&quot; part helps clarify the value to the user.</p>
                                 </div>
                             </div>
 
@@ -525,7 +525,7 @@ The seven phases of software development life cycle:
                                 </div>
                                 <div>
                                     <h4 className="text-lg font-medium text-slate-800 dark:text-slate-200">Include Acceptance Criteria</h4>
-                                    <p className="text-slate-600 dark:text-slate-400">Define clear conditions that must be met for the story to be considered complete. This helps developers understand when they've successfully implemented the feature.</p>
+                                    <p className="text-slate-600 dark:text-slate-400">Define clear conditions that must be met for the story to be considered complete. This helps developers understand when they&apos;ve successfully implemented the feature.</p>
                                 </div>
                             </div>
 
