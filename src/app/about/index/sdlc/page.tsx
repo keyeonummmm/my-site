@@ -1,8 +1,11 @@
 'use client'
 
+import { z } from "zod"
+
 import { openSans } from '@/app/ui/fonts';
 import { useEffect, useState } from 'react';
 import { useTitle } from '@/app/TitleContext';
+import Image from 'next/image';
 import './sdlc.css';
 
 import {
@@ -14,6 +17,7 @@ import {
     TableHeader,
     TableRow,
 } from "@/components/ui/table";
+import LoginSignupForm from "@/components/LoginSignupForm";
 
 export default function SDLCPage() {
     const { setTitle } = useTitle();
@@ -31,6 +35,14 @@ export default function SDLCPage() {
             element.scrollIntoView({ behavior: 'smooth' });
         }
     };
+
+    // Example schema used in the login form component
+    const exampleFormSchema = z.object({
+        email: z.string().email(),
+        password: z.string().min(8).max(50)
+    })
+
+    // This is just for demonstration purposes in the documentation
 
     return (
         <div className={`${openSans.variable} sdlc-documentation`}>
@@ -67,6 +79,14 @@ export default function SDLCPage() {
                                     className={activeSection === 'methodologies' ? 'active' : ''}
                                 >
                                     Methodologies
+                                </button>
+                            </li>
+                            <li>
+                                <button
+                                    onClick={() => scrollToSection('example')}
+                                    className={activeSection === 'example' ? 'active' : ''}
+                                >
+                                    Example
                                 </button>
                             </li>
                         </ul>
@@ -221,7 +241,6 @@ The seven phases of software development life cycle:
                         </div>
                     </section>
 
-
                     <section id="methodologies" className="doc-section">
                         <h2>SDLC Methodologies</h2>
                         <p>
@@ -258,6 +277,68 @@ The seven phases of software development life cycle:
                                     </tr>
                                 </tbody>
                             </table>
+                        </div>
+                    </section>
+
+                    <section id="example" className="doc-section">
+                        <h2>Example</h2>
+                        <p>
+                        Suppose we want to make a  sign-up/log-in page like this. The example below demonstrates a form with validation using Zod and React Hook Form, styled with shadcn/ui components.
+                        </p>
+
+                        <div className="my-8">
+                            <LoginSignupForm />
+                        </div>
+
+                        <div className="doc-note mt-8">
+                            <div className="doc-note-title">Notes</div>
+                            <div className="doc-note-content">
+                                <p>TIn order to make this application fully functional, we also need a backend, a database, an API for front-end and back-end communication, and tests to make sure it works correctly.</p>
+                                <ul className="list-disc pl-5 mt-2">
+                                    <li>Frontend: Inputs, receives and displays data, adapts the display of web pages according to status</li>
+                                    <li>Backend: Receives and processes data, stores data in database, sends data to frontend</li>
+                                    <li>Database: Stores, updates, retrieves, or deletes data</li>
+                                    <li>API: A protocol communication layer defined between the frontend and backend</li>
+                                    <li>Test: Whether it can operate properly and safely (data security) under various simulated destructive, and normal environments </li>
+                                    <br/>
+                                    <li>A broader pattern also includes deployment, maintenance, user feedback, and other aspects, which also vary depending on the process of each project.</li>
+                                </ul>
+                            </div>
+                        </div>
+
+                        <div className="mt-8 flex justify-center">
+                            <Image
+                                src="/assets/other/Frame_7.svg"
+                                alt="Software Development Architecture Diagram"
+                                width={837}
+                                height={531}
+                                priority
+                            />
+                        </div>
+                            <p className="mt-4 flex justify-center text-sm">A simple software architecture diagram</p>
+
+                        <div className="doc-code-block">
+                            <pre>
+                                <code>
+{/* {`// Example of Zod schema used for validation
+const ${exampleFormSchema.toString()}
+
+// Using the schema with react-hook-form
+const form = useForm({
+  resolver: zodResolver(formSchema),
+  defaultValues: {
+    email: '',
+    password: ''
+  }
+})
+
+// Form submission handler
+function onSubmit(data) {
+  // Process form data
+  console.log(data)
+}`} */}
+                                </code>
+                            </pre>
                         </div>
                     </section>
                 </main>
