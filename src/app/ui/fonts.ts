@@ -22,3 +22,10 @@ export const officeTimesRound = localFont({
   style: 'normal',
   variable: '--font-office-times-round'
 })
+
+export const openSans = localFont({
+  src: '../../fonts/OpenSans-VariableFont_wdth,wght.ttf',
+  weight: '550',
+  style: 'normal',
+  variable: '--font-open-sans'
+})

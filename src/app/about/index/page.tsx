@@ -21,6 +21,11 @@ const aboutItems: AboutItem[] = [
     description: "A gpt-2 model fine-tuned with my personal dataset",
     link: "https://github.com/keyeonummmm/apt"
   },
+  {
+    title: "SDLC Documentation",
+    description: "A software development life cycle diagram",
+    link: "/about/index/sdlc"
+  }
   // Add more items as needed
 ];
 
