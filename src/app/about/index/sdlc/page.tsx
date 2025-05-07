@@ -36,12 +36,6 @@ export default function SDLCPage() {
         }
     };
 
-    // Example schema used in the login form component
-    const exampleFormSchema = z.object({
-        email: z.string().email(),
-        password: z.string().min(8).max(50)
-    })
-
     // This is just for demonstration purposes in the documentation
 
     return (
