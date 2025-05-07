@@ -102,7 +102,7 @@ export default function LoginSignupForm() {
   useEffect(() => {
     loginForm.reset();
     signupForm.reset();
-  }, []);
+  }, [loginForm, signupForm]);
 
   // Handle login form submission
   function onLoginSubmit(data: LoginFormValues) {
