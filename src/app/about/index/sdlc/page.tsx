@@ -1,7 +1,5 @@
 'use client'
 
-import { z } from "zod"
-
 import { openSans } from '@/app/ui/fonts';
 import { useEffect, useState } from 'react';
 import { useTitle } from '@/app/TitleContext';
