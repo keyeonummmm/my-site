@@ -78,7 +78,7 @@ export default function SDLCPage() {
                     <section id="introduction" className="doc-section">
                         <h2>Introduction</h2>
                         <p>
-                        It may be better for one person to complete an ambitious software development project, though realistic, production-standard, secure projects are usually done by teams. The reason for this can be as simple as the fact that software development is labor-intensive and involves different phases of the product cycle with different objectives (getting the software online is just the beginning), and one person's energy is really limited.
+                        It may be better for one person to complete an ambitious software development project, though realistic, production-standard, secure projects are usually done by teams. The reason for this can be as simple as the fact that software development is labor-intensive and involves different phases of the product cycle with different objectives (getting the software online is just the beginning), and one person&apos;s energy is really limited.
                         </p>
                         <br />
                         <p>
