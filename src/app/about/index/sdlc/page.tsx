@@ -713,7 +713,7 @@ The seven phases of software development life cycle:
                     {/* Try it out section */}
                     <section id="try-it-out" className="doc-section">
                         <h2>Try it out</h2>
-                            
+
                         <div className="flex mb-6 border-b">
                             <button
                                 onClick={() => switchTryItOutSection('group-info')}
@@ -882,7 +882,7 @@ The seven phases of software development life cycle:
 
                                                 {submitSuccess && (
                                                     <div className="bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 p-3 rounded-md text-sm">
-                                                        Your application has been submitted successfully! We'll be in touch soon.
+                                                        Your application has been submitted successfully! We&apos;ll be in touch soon.
                                                     </div>
                                                 )}
 
