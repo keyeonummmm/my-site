@@ -5,6 +5,9 @@ import { useEffect, useState } from 'react';
 import { useTitle } from '@/app/TitleContext';
 import Image from 'next/image';
 import './sdlc.css';
+import { z } from 'zod';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
 
 import {
     Table,
@@ -16,10 +19,51 @@ import {
     TableRow,
 } from "@/components/ui/table";
 import LoginSignupForm from "@/components/LoginSignupForm";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Textarea } from "@/components/ui/textarea";
+import {
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from "@/components/ui/card";
+import {
+    Form,
+    FormControl,
+    FormField,
+    FormItem,
+    FormLabel,
+    FormMessage,
+} from "@/components/ui/form";
+
+// Application form schema
+const applicationFormSchema = z.object({
+    name: z.string().min(2, { message: "Name must be at least 2 characters" }),
+    email: z.string().email({ message: "Please enter a valid email address" }),
+    phone: z.string().optional(),
+    experience: z.string().min(10, { message: "Please provide more details about your experience" }),
+    interest: z.string().min(10, { message: "Please explain your interest in more detail" }),
+});
+
+type ApplicationFormValues = z.infer<typeof applicationFormSchema>;
+
+// Contact form schema
+const contactFormSchema = z.object({
+    email: z.string().email({ message: "Please enter a valid email address" }),
+    message: z.string().min(10, { message: "Message must be at least 10 characters" }),
+});
+
+type ContactFormValues = z.infer<typeof contactFormSchema>;
 
 export default function SDLCPage() {
     const { setTitle } = useTitle();
     const [activeSection, setActiveSection] = useState('introduction');
+    const [tryItOutSection, setTryItOutSection] = useState('group-info');
+    const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitSuccess, setSubmitSuccess] = useState(false);
+    const [submitError, setSubmitError] = useState('');
 
     useEffect(() => {
         setTitle('SDLC Documentation');
@@ -31,6 +75,102 @@ export default function SDLCPage() {
         const element = document.getElementById(sectionId);
         if (element) {
             element.scrollIntoView({ behavior: 'smooth' });
+        }
+    };
+
+    const switchTryItOutSection = (sectionId: string) => {
+        setTryItOutSection(sectionId);
+    };
+
+    // Application form
+    const applicationForm = useForm<ApplicationFormValues>({
+        resolver: zodResolver(applicationFormSchema),
+        defaultValues: {
+            name: '',
+            email: '',
+            experience: '',
+            interest: '',
+        },
+        mode: 'onChange',
+    });
+
+    // Contact form
+    const contactForm = useForm<ContactFormValues>({
+        resolver: zodResolver(contactFormSchema),
+        defaultValues: {
+            email: '',
+            message: '',
+        },
+        mode: 'onChange',
+    });
+
+    // Handle application form submission
+    const onApplicationSubmit = async (data: ApplicationFormValues) => {
+        setIsSubmitting(true);
+        setSubmitSuccess(false);
+        setSubmitError('');
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: data.email,
+                    message: `Application Form Submission:
+                    Name: ${data.name}
+                    Email: ${data.email}
+                    Experience: ${data.experience} || Null
+                    Interest: ${data.interest}`,
+                }),
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(result.error || 'Failed to submit application');
+            }
+
+            setSubmitSuccess(true);
+            applicationForm.reset();
+        } catch (error) {
+            setSubmitError(error instanceof Error ? error.message : 'An error occurred');
+        } finally {
+            setIsSubmitting(false);
+        }
+    };
+
+    // Handle contact form submission
+    const onContactSubmit = async (data: ContactFormValues) => {
+        setIsSubmitting(true);
+        setSubmitSuccess(false);
+        setSubmitError('');
+
+        try {
+            const response = await fetch('/api/contact', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    email: data.email,
+                    message: data.message,
+                }),
+            });
+
+            const result = await response.json();
+
+            if (!response.ok) {
+                throw new Error(result.error || 'Failed to send message');
+            }
+
+            setSubmitSuccess(true);
+            contactForm.reset();
+        } catch (error) {
+            setSubmitError(error instanceof Error ? error.message : 'An error occurred');
+        } finally {
+            setIsSubmitting(false);
         }
     };
 
@@ -87,6 +227,28 @@ export default function SDLCPage() {
                                     className={activeSection === 'user-stories' ? 'active' : ''}
                                 >
                                     User Stories
+                                </button>
+                            </li>
+
+                            {/* Try it out section - visually distinct */}
+                            <li className="mt-6 mb-2">
+                                <div className="px-4 text-xs uppercase font-semibold text-muted-foreground">
+                                    More to know
+                                </div>
+                            </li>
+                            <li>
+                                <button
+                                    onClick={() => scrollToSection('try-it-out')}
+                                    className={`${activeSection === 'try-it-out' ? 'active' : ''} try-it-out-nav`}
+                                    style={{
+                                        background: activeSection === 'try-it-out' ? 'linear-gradient(90deg, var(--doc-primary-color) 0%, transparent 100%)' : 'transparent',
+                                        color: activeSection === 'try-it-out' ? 'white' : 'inherit',
+                                        fontWeight: 'bold',
+                                        borderRadius: '0 4px 4px 0',
+                                        borderLeft: '3px solid var(--doc-primary-color)',
+                                    }}
+                                >
+                                    Try it out
                                 </button>
                             </li>
                         </ul>
@@ -546,6 +708,248 @@ The seven phases of software development life cycle:
                                 <p>User stories are not meant to be comprehensive requirements documents. They serve as conversation starters between the product owner, developers, and stakeholders. The details emerge through discussions and are captured in acceptance criteria and task breakdowns.</p>
                             </div>
                         </div>
+                    </section>
+
+                    {/* Try it out section */}
+                    <section id="try-it-out" className="doc-section">
+                        <h2>Try it out</h2>
+                            
+                        <div className="flex mb-6 border-b">
+                            <button
+                                onClick={() => switchTryItOutSection('group-info')}
+                                className={`px-4 py-2 text-sm font-medium transition-colors ${tryItOutSection === 'group-info' ? 'border-b-2 border-primary text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
+                            >
+                                Group Information
+                            </button>
+                            <button
+                                onClick={() => switchTryItOutSection('application-form')}
+                                className={`px-4 py-2 text-sm font-medium transition-colors ${tryItOutSection === 'application-form' ? 'border-b-2 border-primary text-foreground' : 'text-muted-foreground hover:text-foreground'}`}
+                            >
+                                Application Form
+                            </button>
+                        </div>
+
+                        {tryItOutSection === 'group-info' ? (
+                            <div className="group-info-section">
+                                <div className="doc-code-block bg-slate-50 dark:bg-slate-900 p-6 rounded-lg shadow-sm mb-6">
+                                    <h3 className="text-xl font-semibold mb-4 text-slate-800 dark:text-slate-200">About Toronto Scrum Team</h3>
+
+                                    <p className="mb-4">
+                                        We are a team of interested individuals dedicated to practicing software development in the real world task sets.
+                                        We implement a full Scrum process to enable team members to master and utilize the tools and gain valuable experience.
+                                    </p>
+
+                                    <div className="grid md:grid-cols-2 gap-6 mt-6">
+                                        <div className="bg-white dark:bg-slate-800 p-5 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700">
+                                            <h4 className="text-lg font-semibold mb-3 flex items-center text-slate-800 dark:text-slate-200">
+                                                <svg className="mr-2 text-blue-500" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                    <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"></path>
+                                                    <circle cx="9" cy="7" r="4"></circle>
+                                                    <path d="M23 21v-2a4 4 0 0 0-3-3.87"></path>
+                                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                                </svg>
+                                                Our Team
+                                            </h4>
+                                            <ul className="list-disc pl-6 text-slate-600 dark:text-slate-400">
+                                                <li>Experienced employed developers with diverse skills</li>
+                                                <li>UX/UI designers from multiple backgrounds</li>
+                                            </ul>
+                                        </div>
+
+                                        <div className="bg-white dark:bg-slate-800 p-5 rounded-lg shadow-sm border border-slate-200 dark:border-slate-700">
+                                            <h4 className="text-lg font-semibold mb-3 flex items-center text-slate-800 dark:text-slate-200">
+                                                <svg className="mr-2 text-green-500" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                                                    <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                                                </svg>
+                                                Our Approach
+                                            </h4>
+                                            <ul className="list-disc pl-6 text-slate-600 dark:text-slate-400">
+                                                <li>Scrum management methodology</li>
+                                                <li>Weekly-based sprints</li>
+                                                <li>Continuous integration and development</li>
+                                                <li>Regular process refinement and adaptation</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+
+                                    <div className="mt-6">
+                                        <h4 className="text-lg font-semibold mb-3 text-slate-800 dark:text-slate-200">Current Projects</h4>
+                                        <p className="mb-4">
+                                            As an early-stage club, we started with small projects:
+                                        </p>
+                                        <ul className="list-disc pl-6 text-slate-600 dark:text-slate-400">
+                                            <li>User sign-up and log-in system</li>
+                                            <li>Research and demonstration of different technology stacks</li>
+                                        </ul>
+                                        <br />
+                                        <p className="mb-4">
+                                            However, we will gradually start working on more challenging projects. You will also meet some interesting people.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div className="flex justify-end">
+                                    <Button
+                                        onClick={() => switchTryItOutSection('application-form')}
+                                        className="mt-4"
+                                    >
+                                        Apply to Join →
+                                    </Button>
+                                </div>
+                            </div>
+                        ) : (
+                            <div className="application-form-section">
+                                <Card className="mb-6">
+                                    <CardHeader>
+                                        <CardTitle>Application Form</CardTitle>
+                                        <CardDescription>
+                                            Join our development team by filling out this application form.
+                                        </CardDescription>
+                                    </CardHeader>
+                                    <CardContent>
+                                        <Form {...applicationForm}>
+                                            <form onSubmit={applicationForm.handleSubmit(onApplicationSubmit)} className="space-y-4">
+                                                <FormField
+                                                    control={applicationForm.control}
+                                                    name="name"
+                                                    render={({ field }) => (
+                                                        <FormItem>
+                                                            <FormLabel>Full Name</FormLabel>
+                                                            <FormControl>
+                                                                <Input placeholder="" {...field} />
+                                                            </FormControl>
+                                                            <FormMessage />
+                                                        </FormItem>
+                                                    )}
+                                                />
+
+                                                <FormField
+                                                    control={applicationForm.control}
+                                                    name="email"
+                                                    render={({ field }) => (
+                                                        <FormItem>
+                                                            <FormLabel>Email</FormLabel>
+                                                            <FormControl>
+                                                                <Input placeholder="" {...field} />
+                                                            </FormControl>
+                                                            <FormMessage />
+                                                        </FormItem>
+                                                    )}
+                                                />
+
+                                                <FormField
+                                                    control={applicationForm.control}
+                                                    name="experience"
+                                                    render={({ field }) => (
+                                                        <FormItem>
+                                                            <FormLabel>Relevant Experience</FormLabel>
+                                                            <FormControl>
+                                                                <Textarea
+                                                                    placeholder="Describe your experience with software development, design, or project management..."
+                                                                    className="min-h-[120px]"
+                                                                    {...field}
+                                                                />
+                                                            </FormControl>
+                                                            <FormMessage />
+                                                        </FormItem>
+                                                    )}
+                                                />
+
+                                                <FormField
+                                                    control={applicationForm.control}
+                                                    name="interest"
+                                                    render={({ field }) => (
+                                                        <FormItem>
+                                                            <FormLabel>What would you like to learn here? (optional)</FormLabel>
+                                                            <FormControl>
+                                                                <Textarea
+                                                                    placeholder="Tell us why you want to join our team and what you hope to contribute..."
+                                                                    className="min-h-[120px]"
+                                                                    {...field}
+                                                                />
+                                                            </FormControl>
+                                                            <FormMessage />
+                                                        </FormItem>
+                                                    )}
+                                                />
+
+                                                {submitError && (
+                                                    <div className="bg-red-50 dark:bg-red-900/20 text-red-600 dark:text-red-400 p-3 rounded-md text-sm">
+                                                        {submitError}
+                                                    </div>
+                                                )}
+
+                                                {submitSuccess && (
+                                                    <div className="bg-green-50 dark:bg-green-900/20 text-green-600 dark:text-green-400 p-3 rounded-md text-sm">
+                                                        Your application has been submitted successfully! We'll be in touch soon.
+                                                    </div>
+                                                )}
+
+                                                <Button
+                                                    type="submit"
+                                                    className="w-full"
+                                                    disabled={isSubmitting}
+                                                >
+                                                    {isSubmitting ? 'Submitting...' : 'Submit Application'}
+                                                </Button>
+                                            </form>
+                                        </Form>
+                                    </CardContent>
+                                </Card>
+
+                                <div className="doc-note">
+                                    <div className="doc-note-title">Contact Us Directly</div>
+                                    <div className="doc-note-content">
+                                        <p className="mb-4">If you have any questions about joining our team, feel free to contact us directly:</p>
+
+                                        <Form {...contactForm}>
+                                            <form onSubmit={contactForm.handleSubmit(onContactSubmit)} className="space-y-4">
+                                                <FormField
+                                                    control={contactForm.control}
+                                                    name="email"
+                                                    render={({ field }) => (
+                                                        <FormItem>
+                                                            <FormLabel>Your Email</FormLabel>
+                                                            <FormControl>
+                                                                <Input placeholder="" {...field} />
+                                                            </FormControl>
+                                                            <FormMessage />
+                                                        </FormItem>
+                                                    )}
+                                                />
+
+                                                <FormField
+                                                    control={contactForm.control}
+                                                    name="message"
+                                                    render={({ field }) => (
+                                                        <FormItem>
+                                                            <FormLabel>Message</FormLabel>
+                                                            <FormControl>
+                                                                <Textarea
+                                                                    placeholder="Your message..."
+                                                                    className="min-h-[100px]"
+                                                                    {...field}
+                                                                />
+                                                            </FormControl>
+                                                            <FormMessage />
+                                                        </FormItem>
+                                                    )}
+                                                />
+
+                                                <Button
+                                                    type="submit"
+                                                    variant="outline"
+                                                    disabled={isSubmitting}
+                                                >
+                                                    {isSubmitting ? 'Sending...' : 'Send Message'}
+                                                </Button>
+                                            </form>
+                                        </Form>
+                                    </div>
+                                </div>
+                            </div>
+                        )}
                     </section>
                 </main>
             </div>

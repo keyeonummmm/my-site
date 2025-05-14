@@ -39,8 +39,3 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
-
-.cursorrules
-sample.txt
-og_images
-og_images/*
